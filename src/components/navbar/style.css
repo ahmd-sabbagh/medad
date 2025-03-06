@@ -1,0 +1,34 @@
+.NavBarLinks .nav-link-color {
+  color: #020202;
+}
+.NavBarLinks .nav-link-color:hover,
+.NavBarLinks nav .active {
+  color: var(--main-color);
+}
+
+@media (max-width: 1024px) {
+  .NavBarLinks nav {
+    position: absolute;
+    padding: 20px;
+    width: 100%;
+    height: calc(100vh);
+    left: 0;
+    top: 0;
+    background-color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: all 0.5s;
+    background-color: rgba(253, 252, 249, 1);
+    box-shadow: 0 0 2px 0px black;
+    z-index: 2000;
+  }
+  .NavBarLinks .nav-link-color {
+    font-size: 32px;
+  }
+
+  .NavBarLinks .language .circel {
+    background-color: #e8eff5;
+  }
+  .NavBarLinks .language .circel.active {
+    border: 6px solid var(--main-color);
+  }
+}

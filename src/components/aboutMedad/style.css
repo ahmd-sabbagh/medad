@@ -1,0 +1,15 @@
+.AboutMedad .images .img-abs {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.AboutMedad .images .bg-after::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,0.6979166666666667) 0%, rgba(226,174,99,0.3617822128851541) 100%);
+}

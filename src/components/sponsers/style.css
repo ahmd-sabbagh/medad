@@ -1,0 +1,20 @@
+.swiper-bnts {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .swiper-bnts button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    color: white;
+  }
+  .swiper-bnts button:disabled {
+    background-color: #e8edf2;
+    color: black;
+  }
+  .swiper-buttons-cont {
+    height: 82px;
+  }
+  
