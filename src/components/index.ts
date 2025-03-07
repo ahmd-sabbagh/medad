@@ -9,6 +9,8 @@ import EventDetailsHerosection from "./eventDetailsHerosection/EventDetailsHeros
 import EventDetailss from "./eventDetailss/EventDetailss";
 import Speakers from "./Speakers/Speakers";
 import OtherActivities from "./otherActivities/OtherActivities";
+import AccompanyingExhibition from "./accompanyingExhibition/AccompanyingExhibition";
+import PrizeEvents from "./prizeEvents/PrizeEvents";
 export {
   Navbar,
   Footer,
@@ -20,5 +22,7 @@ export {
   EventDetailsHerosection,
   EventDetailss,
   Speakers,
-  OtherActivities
+  OtherActivities,
+  AccompanyingExhibition,
+  PrizeEvents
 };

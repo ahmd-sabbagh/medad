@@ -1,0 +1,7 @@
+.app-form input{
+box-shadow: 0 0 20px #00000014;
+}
+.app-form input::placeholder{
+    color: #6F6C90;
+    font-size: 18px;
+}

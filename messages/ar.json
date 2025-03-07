@@ -45,7 +45,29 @@
    "Interviewer":"المحاور",
    "Event topics":"موضوعات الفعاليه",
    "Speakers":"المتحدثين",
-   "Other activities":"فعاليات اخرى"
+   "Other activities":"فعاليات اخرى",
+
+
+   "Accompanying exhibition":"المعرض المصاحب",
+   "King Fahd Cultural Center":"مركز الملك فهد الثقافي",
+   "King Fahd Cultural Center desc":"مركز الملك فهد الثقافي، هو مركز ثقافي يقع في مدينة الرياض عاصمة المملكة العربية السعودية، تقام فيه الأنشطة الثقافية والأدبية والمسرحية مثل معارض للفنون ومحاضرات ومسرحيات وغيرها، ويتكون المركز من مجموعة متكاملة من الأقسام الثقافية في مركز واحد. أكبر هذه الأقسام هي القاعة الكبرى والتي تحتوي على 3000 مقعد. وتبلغ مساحة المركز 100 ألف متر.",
+   "Subscription request":"طلب الاشتراك",
+   "Event prizes":"جوائز الفعاليه",
+   "Submit an application to participate in the event":"تقديم طلب المشاركه في الفعاليه",
+   "Full honorable name":"الاسم الكريم بالكامل",
+   "Search title":"عنوان البحث",
+   "Search type":"نوع البحث",
+   "Upload the search file":"ارفع ملف البحث",
+   "Upload the search file desc":"يجب ان يكون البحث شاملا ولا يتعارض مع سياسات المنصه يجب ان يكون الملف بصيغه PDF وان لا يتعدى حجمه 300MB",
+   "Submit the application":"تقديم الطلب",
+   "Submit an application to participate in the exhibition":"تقديم طلب المشاركه في المعرض",
+   "Prize information":"معلومات الجوائز",
+   "Terms":"الشروط",
+   "Winning tips":"ارشادات الفوز",
+   "Evaluation points":"نقاط التقييم",
+   "Who can win":"من يمكنه الفوز؟",
+   "Archive of winners":"ارشيف الفائزين",
+   "Submit a request for participation":"تقديم طلب المشاركه"
   
 
 }

@@ -1,4 +1,12 @@
-import { EventDetailsHerosection, EventDetailss, OtherActivities, Speakers, Sponsers } from "@/components";
+import {
+  AccompanyingExhibition,
+  EventDetailsHerosection,
+  EventDetailss,
+  OtherActivities,
+  PrizeEvents,
+  Speakers,
+  Sponsers,
+} from "@/components";
 import React from "react";
 
 const EventDetails = () => {
@@ -7,6 +15,8 @@ const EventDetails = () => {
       <EventDetailsHerosection />
       <EventDetailss />
       <Speakers />
+      <AccompanyingExhibition />
+      <PrizeEvents />
       <Sponsers />
       <OtherActivities />
     </section>

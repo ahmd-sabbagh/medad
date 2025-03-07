@@ -21,7 +21,25 @@ import sponser_6 from "./sponser-6.png";
 
 import persone from "./persone.png";
 
+import fahd_center from "./fahd-center.png";
+
+import save from "./prize-1.svg";
+import star from "./star.svg";
+import book from "./book.svg";
+import language from "./languge.svg";
+import application from "./application.png";
+import upload from "./upload.svg";
+import exhibition from "./submit-ma3rad.png";
+
 export {
+  exhibition,
+  upload,
+  application,
+  save,
+  star,
+  book,
+  language,
+  fahd_center,
   persone,
   sponser_1,
   sponser_2,

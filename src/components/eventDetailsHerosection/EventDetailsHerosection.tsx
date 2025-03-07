@@ -1,4 +1,5 @@
 import { herosection_bg } from "@/assets";
+import Link from "next/link";
 import React from "react";
 import { CiHeart } from "react-icons/ci";
 import { MdDateRange } from "react-icons/md";
@@ -36,9 +37,9 @@ const EventDetailsHerosection = () => {
               </div>
             </div>
             <div className="flex items-center justify-center gap-4">
-              <button className="px-8 py-3 bg-main text-black rounded-lg text-xl font-black  transition-transform duration-300 hover:scale-105  cursor-pointer">
+              <Link href={"/submit-application-event"} className="px-8 py-3 bg-main text-black rounded-lg text-xl font-black  transition-transform duration-300 hover:scale-105  cursor-pointer">
                 سجل الآن
-              </button>
+              </Link>
               <button className="px-3 py-3 bg-white rounded-lg  transition-transform duration-300 hover:scale-105 cursor-pointer">
                 <div className="text-2xl text-main">
                   <CiHeart />
