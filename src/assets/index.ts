@@ -31,7 +31,25 @@ import application from "./application.png";
 import upload from "./upload.svg";
 import exhibition from "./submit-ma3rad.png";
 
+import goals_1 from "./goals-1.png";
+import goals_2 from "./goals-2.png";
+import goals_3 from "./gaols-3.png";
+import goals_4 from "./goals-4.png";
+
+import message_icon from "./message.svg";
+import view_icon from "./view.svg";
+import mail from "./mail.svg";
+import call from "./call.svg";
+
 export {
+  mail,
+  call,
+  message_icon,
+  view_icon,
+  goals_1,
+  goals_2,
+  goals_3,
+  goals_4,
   exhibition,
   upload,
   application,

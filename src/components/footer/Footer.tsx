@@ -19,7 +19,7 @@ const Footer = () => {
               <Link href={""} className="text-main md:text-2xl">
                 {t("privacy policy")}
               </Link>
-              <Link href={""} className="text-main md:text-2xl">
+              <Link href={"/contact-us"} className="text-main md:text-2xl">
                 {t("contactUs")}
               </Link>
               <Link href={""} className="text-main md:text-2xl">

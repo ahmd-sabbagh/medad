@@ -11,6 +11,7 @@ import Speakers from "./Speakers/Speakers";
 import OtherActivities from "./otherActivities/OtherActivities";
 import AccompanyingExhibition from "./accompanyingExhibition/AccompanyingExhibition";
 import PrizeEvents from "./prizeEvents/PrizeEvents";
+import HaveAquestion from "./haveAquestion/HaveAquestion";
 export {
   Navbar,
   Footer,
@@ -24,5 +25,6 @@ export {
   Speakers,
   OtherActivities,
   AccompanyingExhibition,
-  PrizeEvents
+  PrizeEvents,
+  HaveAquestion
 };

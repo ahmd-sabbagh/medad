@@ -13,6 +13,6 @@ export const headerLinks = [
   },
   {
     name: "About Medad",
-    href: "/",
+    href: "/about-us",
   },
 ];
