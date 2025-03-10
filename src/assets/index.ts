@@ -41,7 +41,16 @@ import view_icon from "./view.svg";
 import mail from "./mail.svg";
 import call from "./call.svg";
 
+import profile_image from "./profile.png";
+import edit_icon from "./icon-edit.svg";
+import search from "./Search.svg";
+import arrow_down from "./arrow-down.svg";
+
 export {
+  arrow_down,
+  profile_image,
+  edit_icon,
+  search,
   mail,
   call,
   message_icon,
