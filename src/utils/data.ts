@@ -15,4 +15,8 @@ export const headerLinks = [
     name: "About Medad",
     href: "/about-us",
   },
+  {
+    name: "Faqs",
+    href: "/faqs",
+  },
 ];

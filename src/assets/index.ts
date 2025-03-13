@@ -46,6 +46,13 @@ import edit_icon from "./icon-edit.svg";
 import search from "./Search.svg";
 import arrow_down from "./arrow-down.svg";
 
+
+import facebook_icon from "./facebook.png";
+import snapchat_icon from "./snapchat.png";
+import whatsapp_icon from "./whatsapp.png";
+import member_user_avater from "./member.png";
+import job_image from "./job-image.png"
+
 export {
   arrow_down,
   profile_image,
@@ -87,4 +94,9 @@ export {
   about_medad_1,
   about_medad_2,
   about_medad_3,
+  facebook_icon,
+  whatsapp_icon ,
+  snapchat_icon ,
+  member_user_avater ,
+  job_image 
 };
