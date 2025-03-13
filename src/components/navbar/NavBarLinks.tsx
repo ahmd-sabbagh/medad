@@ -51,7 +51,7 @@ const NavBarLinks = ({ locale }: Props) => {
         </div>
         {headerLinks.map((link, idx) => (
           <button
-            className={`md:text-2xl text-xl nav-link-color transition ${
+            className={`md:text-2xl text-xl nav-link-color transition cursor-pointer ${
               pathname === link.href ? "active font-bold" : ""
             }`}
             key={idx}
