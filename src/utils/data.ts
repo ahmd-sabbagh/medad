@@ -5,7 +5,7 @@ export const headerLinks = [
   },
   {
     name: "Events",
-    href: "/",
+    href: "/events",
   },
   {
     name: "Memberships",

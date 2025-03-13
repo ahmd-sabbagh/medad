@@ -46,7 +46,14 @@ import edit_icon from "./icon-edit.svg";
 import search from "./Search.svg";
 import arrow_down from "./arrow-down.svg";
 
+import login_shape from "./Seminar.png"
+import register_img from "./register.png"
+import done from "./Done.png"
+
 export {
+  done,
+  register_img,
+  login_shape,
   arrow_down,
   profile_image,
   edit_icon,

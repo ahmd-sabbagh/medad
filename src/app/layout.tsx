@@ -26,7 +26,6 @@ export default async function RootLayout({
     <html lang={locale} dir={locale == "ar" ? "rtl" : "ltr"}>
       <NextIntlClientProvider messages={messages}>
         <body className={`${zain.className} antialiased`}>
-         
           <main>{children}</main>
         </body>
       </NextIntlClientProvider>

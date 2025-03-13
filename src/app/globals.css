@@ -26,6 +26,18 @@ body {
 .text-red {
   color: var(--red-color);
 }
+.border-color{
+  border-color: #545454;
+}
+.bg-input{
+  background-color: #FFFAF2;
+}
+.bg-input::placeholder{
+  color: var(--main-color);
+}
+.place_yellow::placeholder{
+  color: var(--main-color);
+}
 /* Colors */
 .flex-c {
   display: flex;
@@ -48,4 +60,18 @@ textarea {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+[dir="ltr"] .dir-rotate {
+  transform: rotate(180deg);
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
