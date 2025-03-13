@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import React from "react";
 import { MdAccessTime, MdDateRange } from "react-icons/md";
 import { RiSendPlaneFill } from "react-icons/ri";
@@ -7,6 +7,7 @@ import Interviewer from "./Interviewer";
 import EventTopics from "./EventTopics";
 
 const EventDetailss = () => {
+  const locale = useLocale();
   const t = useTranslations();
   const data = [
     {
@@ -67,7 +68,7 @@ const EventDetailss = () => {
           </div>
         </div>
         <MainTitle />
-        <Interviewer />
+        <Interviewer lang={locale} />
         <EventTopics />
       </div>
     </section>

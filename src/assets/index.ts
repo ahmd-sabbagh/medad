@@ -2,6 +2,7 @@ import navbar_logo from "./nav-logo.png";
 import herosection_bg from "./herosection.png";
 import hero_event_1 from "./herosection-event-1.png";
 import hero_event_2 from "./herosection-event-2.png";
+import load_image from "./loading_image.jpg";
 import about_medad_1 from "./abou-medad-1.png";
 import about_medad_2 from "./about-medad-2.png";
 import about_medad_3 from "./about-medad-3.png";
@@ -84,6 +85,7 @@ export {
   herosection_bg,
   hero_event_1,
   hero_event_2,
+  load_image,
   about_medad_1,
   about_medad_2,
   about_medad_3,
