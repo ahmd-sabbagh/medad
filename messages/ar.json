@@ -176,5 +176,21 @@
   "Manager Desc 2": "افضل الافراد فى طاقم العمل",
   "Submit Now":"قدم الأن",
   "Choice":"اختر",
-  "Used":"مستخدمة"
+  "Used":"مستخدمة",
+
+
+  "The_side_":"الجهه*",
+  "Enter the responsible party":"ادخل الجهه المسؤوله",
+  "Sector_type_":"نوع القطاع*",
+  "Choose":"اختر",
+  "Position_":"المنصب*",
+  "Enter your position":"ادخل المنصب الخاص بك",
+  "gender_":"الجنس*",
+  "profile_image":"صوره شخصيه “اختياري”",
+  "enter_photo_image":"قم برفع صوره شخصيه لك",
+  "init_acc":"إنشاء الحساب",
+  "hav_acc":"لديك حساب بالفعل؟",
+  "Enter your data to register an account":"ادخل بياناتك لتسجيل حساب",
+  "Create a new account":"إنشاء حساب جديد",
+  "Choose the account type and then enter the required information":"اختر نوع الحساب ثم قم بإدخال المعلومات المطلوبه"
 }

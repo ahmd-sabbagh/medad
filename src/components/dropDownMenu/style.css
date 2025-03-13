@@ -1,0 +1,23 @@
+.DropDownMenu .dropMenu {
+  top: 100%;
+  left: 0;
+  box-shadow: 0 0 8px #00000038;
+  max-height: 176px;
+  overflow: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.DropDownMenu .dropMenu::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .DropDownMenu .dropMenu {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+.DropDownMenu .dropMenu .item{
+    transition: .3s;
+}
+.DropDownMenu .dropMenu .item:hover{
+    background-color: rgb(234, 234, 234);
+}
