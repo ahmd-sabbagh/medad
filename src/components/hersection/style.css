@@ -1,3 +1,51 @@
 .Herosection{
-    height: calc(100vh - 111px);
+    height: 100%;
+}
+
+@media (max-width: 1024px) {
+    .Herosection{
+        height:  calc(100% - 111px);
+        min-height: 600px;
+        margin-top: -20px;
+    }
+    .Herosection .event-images
+    {
+        bottom: -30px;
+        position: absolute;
+        width: 100%;
+        display: inline-block;
+        padding: 0 20px;
+    }
+    .Herosection .desc-event
+    {
+        line-height: 1.2;
+    }
+    .Herosection .event-images img
+    {
+        width: 100% !important;
+    }
+    .Herosection .event-images img:nth-child(2)
+    {
+        display: none;
+    }
+    .Herosection .desc-event
+    {
+        width: 100%;
+        border: unset;
+        border-radius: unset;
+    }
+    .Herosection .container 
+    {
+        width: 100% !important;
+        padding: unset !important;
+    }
+    .Herosection .container 
+    {
+        width: 100% !important;
+        padding: unset !important;
+    }
+    .Herosection .container .container-detail
+    {
+        padding: 0 20px;
+    }
 }

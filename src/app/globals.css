@@ -74,4 +74,29 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+@media (max-width: 640px) {
+  /* Small screens */
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Medium screens */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Large screens */
+}
+
+@media (min-width: 1025px) and (max-width: 1744px) {
+  /* Extra large screens */
+  .home-page .Herosection
+  {
+    
+  }
+}
+
+@media (min-width: 1745px){
+  /* Extra large screens */
 }

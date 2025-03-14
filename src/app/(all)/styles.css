@@ -1,0 +1,11 @@
+@media (max-width: 1024px) {
+.nav-section{
+    z-index: 888888;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+h3{
+    text-align: center !important;
+}
+}

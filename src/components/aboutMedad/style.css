@@ -13,3 +13,21 @@
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,0.6979166666666667) 0%, rgba(226,174,99,0.3617822128851541) 100%);
 }
+
+@media (max-width: 1024px) {
+  .AboutMedad {
+    margin-top: 100px;
+  }
+  .AboutMedad h3 ,.AboutMedad  p{ 
+    text-align: center;
+  }
+  .AboutMedad .learn-more
+  {
+    margin: auto;
+  }
+  
+}
+.AboutMedad .img_detail
+  {
+    position: absolute !important;
+  }

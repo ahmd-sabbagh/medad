@@ -9,7 +9,7 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <section>
+    <section className="home-page">
       <Herosection />
       <AboutMedad />
       <Events />

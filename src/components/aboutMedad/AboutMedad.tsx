@@ -4,7 +4,7 @@ import React from "react";
 import Images from "./Images";
 import { about_bg_shape } from "@/assets";
 import PagesAbout from "../pagesAbout/PagesAbout";
-
+import "./style.css"; 
 const AboutMedad = () => {
   const t = useTranslations();
   return (
@@ -15,15 +15,15 @@ const AboutMedad = () => {
       >
         <div className="grid lg:grid-cols-2 items-center">
           <div className="text py-6">
-            <h3 className="md:text-xl lg:text-2xl xl:text-3xl font-bold text-main">
+            <h3 className="md:text-2xl lg:text-3xl xl:text-4xl font-bolder text-main">
               {t("About Medad")}
             </h3>
-            <p className="max-w-[664px] md:text-xl lg:text-2xl xl:text-3xl mt-2">
+            <p className="max-w-[664px] md:text-xl lg:text-2xl xl:text-3xl mt-2 font-bolder">
               {t("aboutMedad desc")}
             </p>
             <Link
               href={""}
-              className="bg-main text-xl px-6 py-2 rounded-xl block w-fit mt-3"
+              className="learn-more bg-main text-xl px-6 py-1 rounded-sm font-bold block w-fit mt-3"
             >
               {t("Learn more")}
             </Link>
