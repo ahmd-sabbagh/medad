@@ -1,20 +1,24 @@
 import { herosection_bg } from "@/assets";
+import { t } from "i18next";
 import Link from "next/link";
 import React from "react";
 import { CiHeart } from "react-icons/ci";
 import { MdDateRange } from "react-icons/md";
 import { RiSendPlaneFill } from "react-icons/ri";
+import { useTranslations, useLocale } from "next-intl";
 
-const EventDetailsHerosection = () => {
+const EventDetailsHerosection = ({ title, date, location }) => {
+
+  const t = useTranslations();
+
   return (
     <section className="bg-image py-10" style={{ backgroundImage: `url(${herosection_bg.src})` }}>
       <div className="container ">
         <div className="flex lg:flex-col items-center gap-4 lg:gap-8">
           <div className="flex flex-col gap-4">
             <div className="">
-              <h1 className="text-2xl lg:text-5xl font-bold text-white lg:mb-8 max-w-2xl">
-                المؤتمر العالمي للابحاث والمعلومات والابتكار في القطاع الخيري
-                (أبحاث)
+              <h1 className="text-2xl lg:text-5xl font-bold text-white lg:mb-8 max-w-2xl text-center">
+                {title}
               </h1>
             </div>
 
@@ -24,7 +28,7 @@ const EventDetailsHerosection = () => {
                   <MdDateRange />
                 </div>
 
-                <span className="text-white">١٧ رمضان ١٤٤٨</span>
+                <span className="text-white">{date}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className=" -rotate-90 text-xl text-main">
@@ -32,13 +36,13 @@ const EventDetailsHerosection = () => {
                 </div>
 
                 <span className="text-white">
-                  مركز الملك فهد الثقافي للمؤتمرات
+                  {location}
                 </span>
               </div>
             </div>
             <div className="flex items-center justify-center gap-4">
               <Link href={"/submit-application-event"} className="px-8 py-3 bg-main text-black rounded-lg text-xl font-black  transition-transform duration-300 hover:scale-105  cursor-pointer">
-                سجل الآن
+                {t('Register now')}
               </Link>
               <button className="px-3 py-3 bg-white rounded-lg  transition-transform duration-300 hover:scale-105 cursor-pointer">
                 <div className="text-2xl text-main">
