@@ -4,9 +4,9 @@
   --red-color: #f54748;
   --main-color-20 : #FFFAF2;
 }
-div{
+/* div{
   line-height: 2px;
-}
+} */
 input:checked ~.checkmark
 {
   background-color: var(--main-color);

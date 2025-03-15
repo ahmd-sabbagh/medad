@@ -22,6 +22,11 @@ const AuthShape = async ({ children ,image}: Props) => {
             <h4 className="text-center text-white font-bold text-xl md:text-3xl">{"زيادة الوعي المجتمعي"}</h4>
             <p className="text-white text-center mt-2 md:text-xl">{"نسعى دائما لتحسين جودة حياة المجتمع والتمكين في العديد من المجالات"}</p>
           </div>
+          <div className="flex gap-4 mx-6 my-2">
+          <span  className={`inline-block w-4 h-4 bg-[#ffffff55] rounded-full`}></span>
+            <span  className={`inline-block w-4 h-4 bg-[#ffffff] rounded-full`}></span>
+            <span  className={`inline-block w-4 h-4 bg-[#ffffff55]  rounded-full`}></span>
+          </div>
         </div>
       </div>
       <div className="relative z-10 min-h-screen flex flex-col">
