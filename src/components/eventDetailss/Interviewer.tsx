@@ -2,16 +2,19 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "next/navigation";
 
 const Interviewer = ({ lang }) => {
   const [data, setData] = useState(null);
+  const params = useParams();
+  
   const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     // Fetch data with the "lang" header
     axios
-      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/axis/1`, {
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/axis/${params.id}`, {
         headers: {
           "Accept-Language": lang, // Use the "lang" prop dynamically
         },

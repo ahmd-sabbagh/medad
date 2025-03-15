@@ -6,23 +6,25 @@ import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 
 interface Props {
-  tags: array;
-  image: array;
+  id: number;
+  tags: string[];
+  image: string[];
   title: string;
   date: string;
   has_favorite?: boolean;
 }
 
-const EventCard = ({ tags, image, title, date, has_favorite }: Props) => {
+
+const EventCard = ({ id, tags, image, title, date, has_favorite }: Props) => {
   const t = useTranslations();
   return (
     <div className="rounded-[12px] overflow-hidden shadow-xl">
       <div className="relative">
-        <Link href={"/event-details"} className="block h-[207px] img-fit">
-          <Image width={300} height={200} src={image[0]} alt="event-image" loading="lazy" />
+        <Link href={`/event-details/${id}`} className="block h-[207px] img-fit">
+          <Image width={300} height={200} src={image?.[0]} alt="event-image" loading="lazy" />
         </Link>
         <div className="absolute top-4 start-4 bg-main py-1 px-4 rounded-[60px] font-bold">
-          {tags[0] ?? null}
+          {tags?.[0] ?? null}
         </div>
         <button className="block absolute top-4 end-4 w-[50px] h-[46px] rounded-[8px] bg-[#F0F0F0] flex-c text-2xl text-main">
           <CiHeart />
