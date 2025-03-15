@@ -11,7 +11,7 @@ const NavbarClone = ({ locale }: Props) => {
     <div className="container">
       <div className="flex justify-between items-center lg:gap-[64px]">
         <div className="lg:flex justify-center items-center w-[100px] md:w-[137px] lg:w-[223px]">
-          <Image src={navbar_logo} alt="logo" loading="lazy" />
+          <Image src={navbar_logo} alt="logo" loading="lazy" height={55} />
         </div>
         <NavBarLinks locale={locale} />
         <Language locale={locale} />

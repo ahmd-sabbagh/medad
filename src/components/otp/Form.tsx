@@ -83,15 +83,35 @@ const OtpForm: FC<OtpProps> = ({ query }: OtpProps) => {
                 type="number"
                 onChange={handleChange}
                 onKeyDown={(e) => handleOnKeyDown(e, index)}
-                className={`text-center ${error ? "valdiation-error" : ""}`}
+                className={`text-center otp-input ${error ? "valdiation-error" : ""}`}
                 // className="w-12 h-12 border-2 rounded bg-transparent outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition"
                 value={otp[index]}
               />
             );
           })}
         </div>
+        <div className="flex items-center gap-1 justify-center mt-12">
         <button
-          className={`bg-main flex-c font-medium md:text-xl text-white px-4 rounded-[18px] h-[60px] md:h-[70px] w-full mt-4 ${
+          onClick={() => {
+            resend();
+            resendOTP();
+          }}
+          disabled={seconds > 0 || minutes > 0}
+          type="submit"
+          className={` ${
+            seconds > 0 || minutes > 0 ? "disable" : "active"
+          }`}
+        >
+          {t("Resend the code")}
+        </button>
+        <p className="text-yellow" style={{color:"#e2ae63"}}>
+           {minutes < 10 ? `0${minutes}` : minutes}:
+          {seconds < 10 ? `0${seconds}` : seconds}
+          <span className="mx-2">{t("seconds")}</span>
+        </p>
+      </div>
+        <button
+          className={`bg-main flex-c font-medium md:text-xl text-white px-4 rounded-[8px] h-[50px] w-full mt-4 ${
             seconds > 0 || minutes > 0 ? "disable" : "active"
           }`}
           disabled={seconds > 0 || minutes > 0 || loading}
@@ -100,25 +120,7 @@ const OtpForm: FC<OtpProps> = ({ query }: OtpProps) => {
           {t("send")}
         </button>
       </form>
-      <div className="flex items-center gap-1 justify-center mt-4">
-        <button
-          onClick={() => {
-            resend();
-            resendOTP();
-          }}
-          disabled={seconds > 0 || minutes > 0}
-          type="submit"
-          className={`${
-            seconds > 0 || minutes > 0 ? "disable" : "active"
-          }`}
-        >
-          {t("Resend the code")}
-        </button>
-        <p className="text-yellow">
-          ( {minutes < 10 ? `0${minutes}` : minutes}:
-          {seconds < 10 ? `0${seconds}` : seconds})
-        </p>
-      </div>
+      
     </>
   );
 };

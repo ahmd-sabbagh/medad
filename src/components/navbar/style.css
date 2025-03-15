@@ -1,9 +1,9 @@
 .NavBarLinks .nav-link-color {
-  color: #020202;
+  color:var(--main-color);
 }
 .NavBarLinks .nav-link-color:hover,
 .NavBarLinks nav .active {
-  color: var(--main-color);
+  font-weight: 900;
 }
 
 @media (max-width: 1024px) {

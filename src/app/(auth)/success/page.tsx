@@ -5,16 +5,17 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/button/Button";
+import AuthBackBtn from "@/components/AuthBackBtn/AuthBackBtn";
 
 const VerifyPage = () => {
   const t = useTranslations();
   return (
     <AuthShape image={register_img}>
       <section className="mt-[200px] md:mt-0 grow flex-c">
+      <AuthBackBtn/>
         <div className="container">
           <div className="grid md:grid-cols-2 md:gap-20">
             <div className="flex flex-col justify-center items-center gap-3">
-           
                 <div className="w-[215px]">
                   <Image src={done} alt="done" loading="lazy" />
                 </div>

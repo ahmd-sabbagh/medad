@@ -2,6 +2,46 @@
 :root {
   --main-color: #e2ae63;
   --red-color: #f54748;
+  --main-color-20 : #FFFAF2;
+}
+div{
+  line-height: 2px;
+}
+input:checked ~.checkmark
+{
+  background-color: var(--main-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark
+{
+  border: 1px solid var(--main-color);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmark:after {
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-left: 1px;
+}
+
+.bg-main-20{
+  background-color: var(--main-color-20);
 }
 body {
   scroll-behavior: smooth;

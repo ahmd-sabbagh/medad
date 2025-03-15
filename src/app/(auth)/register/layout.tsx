@@ -1,6 +1,7 @@
 import AuthShape from "@/components/authShape/AuthShape";
 import Haed from "./Haed";
 import { register_img } from "@/assets";
+import AuthBackBtn from "@/components/AuthBackBtn/AuthBackBtn";
 
 export default async function RootLayout({
   children,
@@ -10,10 +11,10 @@ export default async function RootLayout({
   return (
     <AuthShape image={register_img}>
       <section className="mt-[200px] md:mt-0 grow flex-c">
+      <AuthBackBtn/>
         <div className="container">
           <div className="grid md:grid-cols-2 md:gap-20">
             <div>
-              <Haed />
               {children}
             </div>
           </div>

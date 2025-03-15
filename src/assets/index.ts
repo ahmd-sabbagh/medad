@@ -56,7 +56,8 @@ import snapchat_icon from "./snapchat.png";
 import whatsapp_icon from "./whatsapp.png";
 import member_user_avater from "./member.png";
 import job_image from "./job-image.png"
-
+import saudi_arabia_flag from "./saudi-arabia.png"
+import usa_flag from "./usa.png"
 export {
   done,
   register_img,
@@ -105,5 +106,7 @@ export {
   whatsapp_icon ,
   snapchat_icon ,
   member_user_avater ,
-  job_image 
+  job_image ,
+  saudi_arabia_flag ,
+  usa_flag
 };

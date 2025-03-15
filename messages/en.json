@@ -171,5 +171,15 @@
     "Manager Desc 2": "the best individuals in our team",
     "Submit Now":"Submit Now",
     "Choice":"Choice",
-    "Used":"Used"
+    "Used":"Used" ,
+    "Name": "Name",
+    "Full Name": "Full Name",
+    "Phone": "Phone",
+    "Phone Number": "Phone Number",
+    "Email": "Email",
+    "Email Address": "Email Address",
+    "Password": "Password",
+    "Confirm Password": "Confirm Password",
+    "Remember Me":"Remember Me" ,
+    "seconds":"Seconds"
 }

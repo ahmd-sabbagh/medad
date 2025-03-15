@@ -3,11 +3,13 @@ import React from "react";
 import Haed from "./Haed";
 import LoginForm from "./LoginForm";
 import { login_shape } from "@/assets";
+import AuthBackBtn from "@/components/AuthBackBtn/AuthBackBtn";
 
 const LoginPage = () => {
   return (
     <AuthShape image={login_shape}>
       <section className="mt-[200px] md:mt-0 grow flex-c">
+      <AuthBackBtn/>
         <div className="container ">
           <div className="grid md:grid-cols-2 md:gap-20">
             <div>

@@ -17,3 +17,13 @@
         border-radius: 20px;
     } 
 }
+input.text-center.otp-input {
+    border: 2px solid var(--main-color);
+    border-radius: 7px;
+    height: 69px;
+    width: 87px;
+}
+.otp-page
+{
+    line-height: 20px !important;
+}

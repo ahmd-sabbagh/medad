@@ -11,7 +11,7 @@ const Haed = () => {
         <div className="w-full h-[2px] bg-gray-300">
 
         </div>
-        <p className="tex-sm md:text-base bg-white px-2 min-w-fit">{t("Enter your data to log in")}</p>
+        <p className="tex-sm md:text-base font-bolder px-2 min-w-fit">{t("Enter your data to log in")}</p>
         <div className="w-full h-[2px] bg-gray-300">
 
         </div>
