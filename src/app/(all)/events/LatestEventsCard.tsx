@@ -38,24 +38,24 @@ const LatestEventsCard = () => {
                 <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-8 mt-4 lg:mt-8">
                   <div className="flex gap-3">
                     <Link
-                      className="block h-8 lg:h-12 rounded-lg bg-main font-bold px-6 py-1 w-fit flex-c"
+                      className="block  rounded-[8px] bg-[#C39E61] font-bold px-6 py-1 w-fit flex-c"
                       href={""}
                     >
                       {t("Register now")}
                     </Link>
-                    <button className="px-4 h-8 lg:h-12 bg-[#F0F0F0] rounded-lg">
+                    <button className="p-2 bg-[#F0F0F0] text-[#C39E61] rounded-[8px]" style={{color:"#C39E61"}}>
                       <BiHeart />
                     </button>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="flex lg:gap-1">
-                      <div className="text-main">
+                      <div className="text-[#C39E61]">
                         <MdDateRange />
                       </div>
                       <span className="text-sm">{"١٧ رمضان ١٤٤٨"}</span>
                     </div>
                     <div className="flex lg:gap-1">
-                      <div className="text-main">
+                      <div className="text-[#C39E61]">
                         <RiSendPlaneFill />
                       </div>
                       <span className="text-sm">

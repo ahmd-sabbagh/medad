@@ -63,7 +63,7 @@ const Herosection = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center bg-white p-2 lg:p-4 rounded-lg shadow-md lg:w-24"
+                  className="flex max-h-[80px] w-20 flex-col items-center bg-white p-0 justify-center rounded-lg shadow-md "
                 >
                   <span className="text-sm lg:text-2xl font-bold text-main">
                     {item.value}

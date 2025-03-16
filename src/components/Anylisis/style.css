@@ -1,0 +1,8 @@
+ .prizeEventCard{
+  background: rgb(226, 174, 99);
+  background: linear-gradient(
+    180deg,
+    rgba(226, 174, 99, 0.24) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}

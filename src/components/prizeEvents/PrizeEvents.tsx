@@ -38,7 +38,7 @@ const PrizeEvents = () => {
   ];
   return (
     <section>
-      <div className="container">
+      <div className="px-12">
         <h3 className="font-bold text-xl lg:text-3xl">{t("Event prizes")}</h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 ">
           {data.map((card, idx) => (

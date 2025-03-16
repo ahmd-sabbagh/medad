@@ -36,8 +36,8 @@ const Sponsers = () => {
     sponser_6,
   ];
   return (
-    <section className="py-8 md:py-10">
-      <div className="container">
+    <section className="md:py-10 bg-white">
+      <div className="bg-white py-4 px-12">
         <div className="relative mt-4 md:mt-5">
           {/* swiper */}
           <div className="swiper-cont mx-auto relative overflow-hidden">

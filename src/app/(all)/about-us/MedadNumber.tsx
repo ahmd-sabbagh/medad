@@ -10,17 +10,17 @@ const MedadNumber = () => {
       description: t("Government agencies desc"),
     },
     {
-      num: "٣٠+",
+      num: "+ ٣٠",
       title: t("International Islamic Organization"),
       description: t("International Islamic Organization desc"),
     },
     {
-      num: "٤٦+",
+      num: "+ ٤٦",
       title: t("Donor institution"),
       description: t("Donor institution desc"),
     },
     {
-      num: "٣٠٠٠+",
+      num: "+ ٣٠٠٠",
       title: t("Charitable society"),
       description: t("Charitable society desc"),
     },

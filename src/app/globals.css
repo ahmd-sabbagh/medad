@@ -7,6 +7,18 @@
 /* div{
   line-height: 2px;
 } */
+.font-bolder
+{
+  font-weight: bolder !important;
+}
+.h-full-img img
+{
+  height: 100% !important;
+}
+.c-img img
+{
+  width: 240px !important;
+}
 input:checked ~.checkmark
 {
   background-color: var(--main-color);

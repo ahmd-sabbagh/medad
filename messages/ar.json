@@ -164,7 +164,7 @@
   "You can now follow the website and view all its unique features":"يمكنك الآن المتابعه الى الموقع الالكتروني ومطالعه كل مميزاته الفريده",
   "Go to my account":"انتقل الى حسابي",
   "Go to main page":"انتقل الى الرئيسية",
-  "Faqs": "الأسئلة الشائعة",
+  "Faqs": "الأسئلة الشائعه",
   "Privacy Policy": "قوانين و سياسات",
   "Privacy Policy Desc 1": "نحن فى مداد نؤمن بحريات و حقوق المستخدمين و لذلك تم وضع",
   "Privacy Policy Desc 2": "قوانين و سياسات محددة و محدودة يمكنك الأطلاع عليها فى اى وقت",
@@ -200,5 +200,7 @@
   "Password": "كلمة المرور",
   "Confirm Password": "تأكيد كلمة المرور" ,
   "Remember Me":"تذكرنى",
-  "seconds":"ثانية"
+  "seconds":"ثانية" ,
+  "Join Request":"تقديم طلب مشاركة",
+  "Schedule Events":"جدول الفعاليه"
 }

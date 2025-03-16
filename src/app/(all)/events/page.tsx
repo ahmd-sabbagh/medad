@@ -9,7 +9,9 @@ const EventsPage = () => {
     <section>
       <Header />
       <LatestEventsCard />
-      <EvevtsYear />
+      <EvevtsYear year={2020}/>
+      <EvevtsYear year={2021}/>
+      <EvevtsYear year={2023}/>
     </section>
   );
 };

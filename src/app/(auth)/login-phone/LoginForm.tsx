@@ -43,7 +43,7 @@ const LoginForm = () => {
             </Link>
       <Link
         href={"/login"}
-        className="border mt-12 border-yellow-500 flex-c font-medium md:text-xl text-main px-4 rounded-[8px] h-[40px]"
+        className="border my-12 border-yellow-500 flex-c font-medium md:text-xl text-main px-4 rounded-[8px] h-[40px]"
       >
         {t("sign_by_email")}
       </Link>

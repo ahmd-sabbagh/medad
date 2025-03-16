@@ -37,8 +37,8 @@ const OtherActivities = () => {
     },
   ];
   return (
-    <section className="py-8 bg-white">
-      <div className="container">
+    <section className="py-8 px-12 bg-white">
+      <div className="">
         <div>
           <h3 className="text-3xl font-bold">{t("Other activities")}</h3>
         </div>

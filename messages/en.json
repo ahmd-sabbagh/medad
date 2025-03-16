@@ -181,5 +181,6 @@
     "Password": "Password",
     "Confirm Password": "Confirm Password",
     "Remember Me":"Remember Me" ,
-    "seconds":"Seconds"
+    "seconds":"Seconds",
+    "Join Request":"Join Request"
 }

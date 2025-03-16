@@ -10,15 +10,15 @@ const Form = () => {
         <input
           type="text"
           placeholder={t("the name")}
-          className="h-[60px] md:h-[82px] rounded-xl px-5 md:px-8 bg-[#F0F0F0] md:col-span-2"
+          className="rounded-[10px] px-5 md:px-8 py-3 bg-[#F0F0F0] md:col-span-2 text-black placeholder-black"
         />
         <input
           type="email"
           placeholder={t("email")}
-          className="h-[60px] md:h-[82px] rounded-xl px-5 md:px-8 bg-[#F0F0F0] md:col-span-3"
+          className="rounded-[10px] px-5 py-3 md:px-8 bg-[#F0F0F0] md:col-span-3 text-black placeholder-black"
         />
-        <textarea className="h-[200px] md:h-[355px] rounded-xl p-5 md:p-8 bg-[#F0F0F0] md:col-span-5" placeholder={t("the text")}></textarea>
-        <button className=" md:col-span-5 h-[60px] md:h-[82px] rounded-xl w-full bg-main text-center text-xl font-bold">{t("send")}</button>
+        <textarea className="h-[200px] md:h-[355px] rounded-[10px] p-5 md:p-8 bg-[#F0F0F0] md:col-span-5 text-black placeholder-black" placeholder={t("the text")}></textarea>
+        <button className=" md:col-span-5 rounded-[10px] w-full bg-main text-center text-xl font-bolder py-3">{t("send")}</button>
       </div>
     </form>
   );

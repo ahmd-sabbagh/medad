@@ -27,9 +27,15 @@ const VerifyPage = () => {
                     "You can now follow the website and view all its unique features"
                   )}
                 </p>
-                <Button className=" w-full mt-5 md:mt-8" name={t("Go to main page")} />
+                <Link href={"/verify"}
+                type="button"
+                className={`bg-main flex-c font-medium md:text-xl text-white px-4 rounded-[8px] h-[40px]`}
+                
+            >
+                {t("Go to main page")}
+            </Link>
                 <Link
-                  href={"./login"}
+                  href={"/login"}
                   className=" w-full  flex-c font-medium md:text-xl px-4 rounded-[18px] h-[52px] md:h-[70px]"
                 >
                   {t("Go to my account")}

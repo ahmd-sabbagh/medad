@@ -2,6 +2,7 @@ import { card_1, card_2 } from "@/assets";
 import { useTranslations } from "next-intl";
 import React from "react";
 import EventCard from "../eventCard/EventCard";
+import Link from "next/link";
 
 const Events = () => {
   const t = useTranslations();
@@ -74,7 +75,7 @@ const Events = () => {
             <EventCard {...card} key={idx} />
           ))}
         </div>
-        <button className="block w-fit py-2 px-4 rounded-xl font-bold text-lg mt-6 md:mt-10 bg-main mx-auto">{t("Events Calendar")}</button>
+        <Link href={"/events"} className="block w-fit px-5 py-1 rounded-[4px] font-bolder text-lg mt-6 md:mt-10 bg-main mx-auto">{t("Events Calendar")}</Link>
       </div>
     </section>
   );

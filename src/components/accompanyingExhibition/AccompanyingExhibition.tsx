@@ -7,7 +7,7 @@ import Link from "next/link";
 const AccompanyingExhibition = () => {
   const t = useTranslations();
   return (
-    <section className="py-10 md:py-20">
+    <section className="py-10 px-12 md:py-20">
       <div className="container">
         <h3 className="font-bold text-xl lg:text-3xl">{t("Accompanying exhibition")}</h3>
         <div className="MainTitle p-3 md:p-8  rounded-xl mt-6 flex items-center gap-4">

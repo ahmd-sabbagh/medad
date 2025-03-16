@@ -15,7 +15,7 @@ const Header = () => {
     "الرياض",
   ];
   return (
-    <section className="bg-main py-10 md:py-12 bg-image" style={{ backgroundImage: `url(${about_bg_shape.src})` }}>
+    <section className="bg-[#C39E61] py-10 md:py-12 bg-image" style={{ backgroundImage: `url(${about_bg_shape.src})` }}>
       <div className="container">
         <h2 className="text-center text-white text-3xl md:text-5xl font-bold">
           {t("Events Calendar")}

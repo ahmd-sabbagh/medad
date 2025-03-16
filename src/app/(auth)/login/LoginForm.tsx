@@ -96,7 +96,7 @@ const LoginForm = () => {
           {t("register")}
         </Link>
       </div>
-      <Link href={"./login-phone"} className="border mt-3 border-yellow-500 flex-c font-medium md:text-xl text-main px-4 rounded-[8px] h-[40px]">{t("login_phone")}</Link>
+      <Link href={"./login-phone"} className="border mt-3 mb-8 border-yellow-500 flex-c font-medium md:text-xl text-main px-4 rounded-[8px] h-[40px]">{t("login_phone")}</Link>
     </form>
   );
 };
