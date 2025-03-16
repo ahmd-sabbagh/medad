@@ -48,9 +48,9 @@ const EventDetails = () => {
         );
     }
 
-    const items = data?.data || {};
+    const event = data?.data;
 
-    const nowGreg = new Date(items?.date);
+    const nowGreg = new Date(event?.date);
     const nowHijri = toHijri(nowGreg);
     const hijriDay = nowHijri.getDate();
     const hijriMonth = nowHijri.getMonth();
@@ -62,8 +62,6 @@ const EventDetails = () => {
     ];
 
     const formattedHijriDate = `${hijriDay} ${hijriMonths[hijriMonth]} ${hijriYear}`;
-
-    const event = data?.data;
 
     return (
         <section>
@@ -79,7 +77,7 @@ const EventDetails = () => {
                 axes={event?.axes}
                 topics={event?.topics}
             />
-            <Speakers />
+            <Speakers lang={locale} event_id={params.id} />
             {/* <AccompanyingExhibition />
             <PrizeEvents />
             <Sponsers />
