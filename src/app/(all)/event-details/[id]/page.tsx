@@ -80,8 +80,8 @@ const EventDetails = () => {
             <Speakers lang={locale} event_id={params.id} />
             {/* <AccompanyingExhibition /> */}
             <PrizeEvents lang={locale} event_id={params.id} />
-            {/* <Sponsers />
-            <OtherActivities /> */}
+            {/* <Sponsers /> */}
+            <OtherActivities lang={locale} event_id={params.id} />
         </section>
     );
 };

@@ -1,41 +1,30 @@
-import { card_1, card_2 } from "@/assets";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useTranslations } from "next-intl";
-import React from "react";
 import EventCard from "../eventCard/EventCard";
 
 
-const OtherActivities = () => {
+const OtherActivities = ({ lang, event_id }) => {
   const t = useTranslations();
-  const data = [
-    {
-      type: "امسية",
-      image: card_1,
-      name: "فعاليه العطاء لحفظ النعم",
-      date: "١٠ رمضان ١٤٤٨",
-      status: true,
-    },
-    {
-      type: "لقاء",
-      image: card_2,
-      name: "فعاليه العطاء لحفظ النعم",
-      date: "١٠ رمضان ١٤٤٨",
-      status: false,
-    },
-    {
-      type: "امسية",
-      image: card_1,
-      name: "فعاليه العطاء لحفظ النعم",
-      date: "١٠ رمضان ١٤٤٨",
-      status: true,
-    },
-    {
-      type: "لقاء",
-      image: card_2,
-      name: "فعاليه العطاء لحفظ النعم",
-      date: "١٠ رمضان ١٤٤٨",
-      status: false,
-    },
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/event/same/${event_id}`, {
+        headers: {
+          "Accept-Language": lang,
+        },
+      })
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+      });
+  }, [lang]);
+
   return (
     <section className="py-8 bg-white">
       <div className="container">
@@ -43,7 +32,7 @@ const OtherActivities = () => {
           <h3 className="text-3xl font-bold">{t("Other activities")}</h3>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-3">
-          {data.map((card, idx) => (
+          {data?.data?.map((card, idx) => (
             <EventCard {...card} key={idx} />
           ))}
         </div>

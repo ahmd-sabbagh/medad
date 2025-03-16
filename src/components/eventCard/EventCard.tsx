@@ -21,7 +21,7 @@ const EventCard = ({ id, tags, image, title, date, has_favorite }: Props) => {
     <div className="rounded-[12px] overflow-hidden shadow-xl">
       <div className="relative">
         <Link href={`/event-details/${id}`} className="block h-[207px] img-fit">
-          <Image width={300} height={200} src={image?.[0]} alt="event-image" loading="lazy" />
+          <Image width={300} height={200} src={image} alt="event-image" loading="lazy" />
         </Link>
         <div className="absolute top-4 start-4 bg-main py-1 px-4 rounded-[60px] font-bold">
           {tags?.[0] ?? null}
