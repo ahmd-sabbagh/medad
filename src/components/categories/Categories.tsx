@@ -44,10 +44,10 @@ const Categories = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mt-6 gap-3">
           {data.map((item, idx) => (
             <div className="flex items-center bg-[#E2AE6352] rounded-[38px] overflow-hidden" key={idx}>
-              <div className="min-w-[168px] img-fit">
-                <Image src={item.image} alt="cat-item" loading="lazy" />
+              <div className="h-full-img h-full c-img">
+                <Image className="h-full"  layout="responsive" src={item.image} alt="cat-item" loading="lazy" />
               </div>
-              <div className="p-6 ">
+              <div className="px-2 ml-4 py-6 ">
                 <h5 className="text-2xl font-bold">{item.name}</h5>
                 <p className="text-sm mt-2 font-medium">{item.description}</p>
               </div>

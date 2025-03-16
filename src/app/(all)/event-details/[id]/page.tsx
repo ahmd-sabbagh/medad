@@ -1,5 +1,5 @@
 "use client";
-
+import { event_mask_1 } from "@/assets";
 import {
     AccompanyingExhibition,
     EventDetailsHerosection,
@@ -14,6 +14,10 @@ import axios from "axios";
 import HijriDate, { toHijri } from 'hijri-date/lib/safe';
 import { useParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import Image from "next/image";
+import "../style.css"
+import Schedule from "@/components/Schedule/Schedule";
+import Anylisis from "@/components/Anylisis/Anylisis";
 
 const EventDetails = () => {
 
@@ -66,6 +70,14 @@ const EventDetails = () => {
     return (
         <section>
             <EventDetailsHerosection title={event?.title} date={formattedHijriDate} location={event?.location} />
+            <div className="bg-images-event">
+                <div className="grid grid-cols-2 gap-4">
+                    <Image className="img_1" src={event_mask_1} alt="" />
+                    <div className=""></div>
+                    <div className=""></div>
+                    <Image className="img_2" src={event_mask_1} alt="" />
+                </div>
+            </div>
             <EventDetailss
                 title={event?.title}
                 introduction={event?.introduction}
@@ -80,7 +92,9 @@ const EventDetails = () => {
             <Speakers lang={locale} event_id={params.id} />
             <AccompanyingExhibition />
             <PrizeEvents lang={locale} event_id={params.id} />
+            <Schedule />
             <Sponsers />
+            <Anylisis />
             <OtherActivities lang={locale} event_id={params.id} />
         </section>
     );

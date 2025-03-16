@@ -26,15 +26,15 @@ const Speakers = ({ lang, event_id }) => {
   }, [lang]);
 
   return (
-    <section className="py-10 md:py-20">
-      <div className="container">
+    <section className="px-12 ">
+      <div className="">
         <h3 className="font-bold text-xl lg:text-3xl">{t("Speakers")}</h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
           {speakers?.data?.map((speaker, index) => (
             <div className="img-fit h-[200px] md:h-[270px] rounded-xl overflow-hidden relative" key={index}>
               <Image src={speaker.image} width={300} height={200} alt="persone" loading="lazy" />
-              <div className="shape-grad absolute top-0 start-0 w-full h-full"></div>
-              <div className="absolute w-full bottom-[0px] start-0 px-4 py-3">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black to-black/20"></div>
+              <div className="absolute w-full bottom-0 left-0 px-4 py-3">
                 <div className="font-bold text-white">{speaker.name}</div>
                 <p className="text-main font-bold text-sm">{speaker.job_title}</p>
               </div>

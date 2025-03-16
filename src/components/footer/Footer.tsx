@@ -8,24 +8,24 @@ import { useTranslations } from "next-intl";
 const Footer = () => {
   const t = useTranslations();
   return (
-    <section className="bg-black py-16">
-      <div className="container">
-        <div className="grid md:grid-cols-2 items-center gap-5 ">
-          <div className="order-2 md:order-1">
-            <div className="w-[325px] mx-auto md:m-0">
+    <section className="bg-black py-8 medad-footer">
+      <div className="">
+        <div className="grid md:grid-cols-2 items-center gap-5 mx-8">
+          <div className="order-2 md:order-1 mt-[-60px]">
+            <div className="w-[225px] md:m-0">
               <Image src={navbar_logo} alt="logo" loading="lazy" />
             </div>
-            <div className="grid grid-cols-2 gap-2 md:gap-4 mt-6 max-w-[400px] mx-auto md:mx-0">
-              <Link href={""} className="text-main md:text-2xl">
+            <div className="grid grid-cols-2 gap-2 md:gap-4 mt-6 max-w-[400px] mr-4">
+              <Link href={"/privacy-policy"} className="text-main md:text-xl">
                 {t("privacy policy")}
               </Link>
-              <Link href={"/contact-us"} className="text-main md:text-2xl">
+              <Link href={"/contact-us"} className="text-main md:text-xl">
                 {t("contactUs")}
               </Link>
-              <Link href={""} className="text-main md:text-2xl">
+              <Link href={"/jobs"} className="text-main md:text-xl">
                 {t("the jobs")}
               </Link>
-              <Link href={""} className="text-main md:text-2xl">
+              <Link href={"/faqs"} className="text-main md:text-xl">
                 {t("faqs")}
               </Link>
             </div>

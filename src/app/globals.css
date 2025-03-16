@@ -2,6 +2,58 @@
 :root {
   --main-color: #e2ae63;
   --red-color: #f54748;
+  --main-color-20 : #FFFAF2;
+}
+/* div{
+  line-height: 2px;
+} */
+.font-bolder
+{
+  font-weight: bolder !important;
+}
+.h-full-img img
+{
+  height: 100% !important;
+}
+.c-img img
+{
+  width: 240px !important;
+}
+input:checked ~.checkmark
+{
+  background-color: var(--main-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark
+{
+  border: 1px solid var(--main-color);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmark:after {
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-left: 1px;
+}
+
+.bg-main-20{
+  background-color: var(--main-color-20);
 }
 body {
   scroll-behavior: smooth;
@@ -26,6 +78,18 @@ body {
 .text-red {
   color: var(--red-color);
 }
+.border-color{
+  border-color: #545454;
+}
+.bg-input{
+  background-color: #FFFAF2;
+}
+.bg-input::placeholder{
+  color: var(--main-color);
+}
+.place_yellow::placeholder{
+  color: var(--main-color);
+}
 /* Colors */
 .flex-c {
   display: flex;
@@ -48,4 +112,43 @@ textarea {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+[dir="ltr"] .dir-rotate {
+  transform: rotate(180deg);
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+@media (max-width: 640px) {
+  /* Small screens */
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Medium screens */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Large screens */
+}
+
+@media (min-width: 1025px) and (max-width: 1744px) {
+  /* Extra large screens */
+  .home-page .Herosection
+  {
+    
+  }
+}
+
+@media (min-width: 1745px){
+  /* Extra large screens */
 }

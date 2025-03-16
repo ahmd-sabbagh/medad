@@ -18,7 +18,7 @@ const EventDetailss = ({ title, introduction, description, target, location, dat
 
 
   return (
-    <section className="bg-[#f5f5f5] py-10 lg:py-20">
+    <section className="bg-[#f5f5f5] pt-10 px-12 lg:pt-20">
       <div className="container">
         <div className="grid gap-10 lg:gap-16 xl:gap-32 lg:grid-cols-5">
           <div className="flex flex-col gap-8 lg:gap-28 lg:col-span-3">
@@ -37,7 +37,7 @@ const EventDetailss = ({ title, introduction, description, target, location, dat
           </div>
           <div className="lg:col-span-2 flex flex-col gap-10">
             <div className="flex items-center gap-3">
-              <div className="h-[50px] w-[50px] lg:w-[90px] lg:h-[90px] rounded-full bg-main flex-c text-2xl lg:text-5xl -rotate-90 text-white">
+              <div className="rounded-full bg-main flex-c text-2xl p-3 -rotate-90 text-white">
                 <RiSendPlaneFill />
               </div>
               <div>
@@ -46,7 +46,7 @@ const EventDetailss = ({ title, introduction, description, target, location, dat
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="h-[50px] w-[50px] lg:w-[90px] lg:h-[90px] rounded-full bg-main flex-c text-2xl lg:text-5xl text-white">
+              <div className="rounded-full bg-main flex-c text-2xl p-3 text-white">
                 <MdDateRange />
               </div>
               <div>
@@ -55,8 +55,8 @@ const EventDetailss = ({ title, introduction, description, target, location, dat
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="h-[50px] w-[50px] lg:w-[90px] lg:h-[90px] rounded-full bg-main flex-c text-2xl lg:text-5xl text-white">
-                <MdAccessTime />
+              <div className="rounded-full bg-main flex-c text-2xl p-3 text-white">
+              <MdAccessTime />
               </div>
               <div>
                 <div>{t("Event time")}</div>

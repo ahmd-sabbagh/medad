@@ -1,0 +1,40 @@
+.bg-images-about
+{
+    position: absolute !important;
+    width: 100%;
+    z-index: 0;
+}
+.bg-images-event
+{
+    position: absolute !important;
+    width: 100%;
+    z-index: 0;
+}
+.bg-images-about img ,
+.bg-images-event img{
+    width: 100% !important;
+}
+img.img_1 {
+    margin-right: -25%;
+    margin-top: -30%;
+}
+img.img_2 {
+    margin-left: -25%;
+    margin-top: -30%;
+}
+img.img_1_1 {
+    margin-right: -25%;
+    margin-top: -30%;
+}
+img.img_1_2 {
+    margin-left: -25%;
+    margin-top: -30%;
+}
+img.img_2_1 {
+    margin-right: -25%;
+    margin-top: -20%;
+}
+img.img_2_2 {
+    margin-left: -25%;
+    margin-top: -20%;
+}

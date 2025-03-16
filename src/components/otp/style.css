@@ -1,0 +1,29 @@
+.verify-otp input {
+  width: 83px;
+  height: 100px;
+  border: 1px solid #d8dfeb;
+  border-radius: 27px;
+}
+.verify-otp input:focus{
+    border-color: #020202;
+}
+.disable{
+    color: dimgrey;
+}
+@media (max-width:1280px) {
+    .verify-otp input{
+        width: 53px;
+        height: 60px;
+        border-radius: 20px;
+    } 
+}
+input.text-center.otp-input {
+    border: 2px solid var(--main-color);
+    border-radius: 7px;
+    height: 69px;
+    width: 87px;
+}
+.otp-page
+{
+    line-height: 20px !important;
+}

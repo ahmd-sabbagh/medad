@@ -1,0 +1,9 @@
+.chbx label{
+    background-color: white;
+}
+.chbx input:checked + label{
+background-color: #FFFFFF80;
+}
+.chbx label:hover{
+    background-color: #FFFFFF80;
+    }

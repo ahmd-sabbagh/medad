@@ -9,6 +9,7 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import Image from "next/image";
 import { navbar_logo } from "@/assets";
+import Link from "next/link";
 
 interface Props {
   locale: string;
@@ -51,9 +52,8 @@ const NavBarLinks = ({ locale }: Props) => {
         </div>
         {headerLinks.map((link, idx) => (
           <button
-            className={`md:text-2xl text-xl nav-link-color transition ${
-              pathname === link.href ? "active font-bold" : ""
-            }`}
+            className={`md:text-2xl text-xl nav-link-color transition cursor-pointer ${pathname === link.href ? "active font-bold" : ""
+              }`}
             key={idx}
             onClick={() => {
               router.replace(link.href);
@@ -63,6 +63,14 @@ const NavBarLinks = ({ locale }: Props) => {
             {t(link.name)}
           </button>
         ))}
+        <div className="flex-grow">
+          <Link href="/login" className="px-8 py-1 font-main  text-xl  transition-transform duration-300 hover:scale-105  cursor-pointer float-left">
+            تسجيل الدخول
+          </Link>
+          <Link href={"/register"} className="px-8 py-1 bg-main text-white rounded-sm text-xl transition-transform duration-300 hover:scale-105  cursor-pointer float-left">
+            التسجيل
+          </Link>
+        </div>
         {/* language */}
         <div className="language mt-4 pt-4 border-t lg:hidden w-full">
           <p className="text-2xl">{t("Language")}</p>
@@ -76,9 +84,8 @@ const NavBarLinks = ({ locale }: Props) => {
           >
             <p className="text-xl font-bold">{t("Arabic")}</p>
             <div
-              className={`circel w-8 h-8 rounded-full ${
-                locale == "ar" ? "active" : ""
-              }`}
+              className={`circel w-8 h-8 rounded-full ${locale == "ar" ? "active" : ""
+                }`}
             ></div>
           </button>
           <button
@@ -91,9 +98,8 @@ const NavBarLinks = ({ locale }: Props) => {
           >
             <p className="text-xl font-bold">{t("English")}</p>
             <div
-              className={`circel w-8 h-8 rounded-full ${
-                locale == "en" ? "active" : ""
-              }`}
+              className={`circel w-8 h-8 rounded-full ${locale == "en" ? "active" : ""
+                }`}
             ></div>
           </button>
         </div>

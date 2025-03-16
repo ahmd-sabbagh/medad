@@ -5,14 +5,14 @@ export const headerLinks = [
   },
   {
     name: "Events",
-    href: "/",
+    href: "/events",
   },
   {
     name: "Memberships",
-    href: "/",
+    href: "/memberships",
   },
   {
     name: "About Medad",
     href: "/about-us",
-  },
+  }
 ];

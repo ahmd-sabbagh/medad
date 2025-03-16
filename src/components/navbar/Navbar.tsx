@@ -8,7 +8,7 @@ const Navbar = async () => {
 
   return (
     <section
-      className="py-3 bg-white"
+      className="py-3 bg-white nav-section medad-nav"
     >
       <NavbarClone locale={locale} />
     </section>

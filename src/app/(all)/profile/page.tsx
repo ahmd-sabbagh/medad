@@ -18,7 +18,7 @@ const ProfilePage = () => {
         <form onSubmit={onsubmit} className="mt-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-10">
             {/* The name */}
-            <div className="flex flex-col gap-3 lg:gap-4">
+            <div className="flex flex-col gap-1">
               <label className="text-lg lg:text-2xl " htmlFor="name">
                 {t("the name")}
               </label>
@@ -26,11 +26,11 @@ const ProfilePage = () => {
                 type="text"
                 id="name"
                 placeholder={t("the name")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
             {/* phone number */}
-            <div className="flex flex-col gap-3 lg:gap-4">
+            <div className="flex flex-col gap-1">
               <label className="text-lg lg:text-2xl " htmlFor="phone">
                 {t("Mobile number")}
               </label>
@@ -38,11 +38,11 @@ const ProfilePage = () => {
                 type="text"
                 id="phone"
                 placeholder={t("Mobile number")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
             {/* password */}
-            <div className="flex flex-col gap-3 lg:gap-4">
+            <div className="flex flex-col gap-1">
               <label className="text-lg lg:text-2xl " htmlFor="password">
                 {t("password")}
               </label>
@@ -50,11 +50,11 @@ const ProfilePage = () => {
                 type="text"
                 id="password"
                 placeholder={t("password")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
             {/* email */}
-            <div className="flex flex-col gap-3 lg:gap-4 md:col-span-2">
+            <div className="flex flex-col gap-1 md:col-span-2">
               <label className="text-lg lg:text-2xl " htmlFor="email">
                 {t("email")}
               </label>
@@ -62,11 +62,11 @@ const ProfilePage = () => {
                 type="text"
                 id="email"
                 placeholder={t("email")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
             {/* confirl password */}
-            <div className="flex flex-col gap-3 lg:gap-4">
+            <div className="flex flex-col gap-1">
               <label className="text-lg lg:text-2xl " htmlFor="confirmPassword">
                 {t("confirm password")}
               </label>
@@ -74,10 +74,10 @@ const ProfilePage = () => {
                 type="text"
                 id="confirmPassword"
                 placeholder={t("confirm password")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
-            <button className="lg:col-span-3 h-[60px] lg:h-[82px] bg-[#c9c9c9] text-[#00000080] font-bold rounded-xl block w-full text-center text-lg lg:text-2xl ">
+            <button className="lg:col-span-3 py-3 bg-[#c9c9c9] text-[#00000080] font-bold rounded-xl block w-full text-center text-lg lg:text-2xl ">
               {t("save edit")}
             </button>
           </div>
@@ -89,7 +89,7 @@ const ProfilePage = () => {
           </h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-10 mt-10">
             {/* The side */}
-            <div className="flex flex-col gap-3 lg:gap-4">
+            <div className="flex flex-col gap-1">
               <label className="text-lg lg:text-2xl " htmlFor="The_side">
                 {t("The side")}
               </label>
@@ -97,11 +97,11 @@ const ProfilePage = () => {
                 type="text"
                 id="The_side"
                 placeholder={t("Government agency")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
             {/* sector */}
-            <div className="flex flex-col gap-3 lg:gap-4">
+            <div className="flex flex-col gap-1">
               <label className="text-lg lg:text-2xl " htmlFor="sector">
                 {t("sector")}
               </label>
@@ -109,11 +109,11 @@ const ProfilePage = () => {
                 type="text"
                 id="sector"
                 placeholder={t("Public sector")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
             {/* Position */}
-            <div className="flex flex-col gap-3 lg:gap-4">
+            <div className="flex flex-col gap-1">
               <label className="text-lg lg:text-2xl " htmlFor="Position">
                 {t("Position")}
               </label>
@@ -121,11 +121,11 @@ const ProfilePage = () => {
                 type="text"
                 id="Position"
                 placeholder={t("Position")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
             {/* Gender */}
-            <div className="flex flex-col gap-3 lg:gap-4">
+            <div className="flex flex-col gap-1">
               <label className="text-lg lg:text-2xl " htmlFor="Gender">
                 {t("Gender")}
               </label>
@@ -133,10 +133,10 @@ const ProfilePage = () => {
                 type="text"
                 id="Gender"
                 placeholder={t("Gender")}
-                className="h-[60px] lg:h-[82px] bg-white rounded-xl px-5 lg:px-8 w-full"
+                className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
-            <button className="lg:col-span-3 h-[60px] lg:h-[82px] bg-main font-bold rounded-xl block w-full text-center text-lg lg:text-2xl ">
+            <button className="lg:col-span-3 py-3 bg-main font-bold rounded-xl block w-full text-center text-lg lg:text-2xl ">
               {t("save edit")}
             </button>
           </div>

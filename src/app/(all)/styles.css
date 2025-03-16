@@ -1,0 +1,33 @@
+@media (max-width: 1024px) {
+    .nav-section {
+        z-index: 888888;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    h3 {
+        text-align: center !important;
+    }
+}
+.medad-footer
+{
+    z-index: 99999;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0) !important;
+}
+.medad-nav
+{
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    margin-bottom: 99px;
+}
+body main > section:nth-child(2) > .container ,
+section.Herosection.py-10.flex-c > div ,
+body > main > section:nth-child(2) > section > div
+{
+    margin-top: 60px;
+}

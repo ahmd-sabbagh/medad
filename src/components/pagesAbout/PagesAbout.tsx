@@ -31,8 +31,8 @@ const PagesAbout = () => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-8">
       {data.map((item, idx) => (
-        <Link href={item.href} key={idx} className="h-[186px] bg-[#F2E2CA] rounded-[33px] flex items-center justify-center gap-6">
-            <div className="w-16 h-16 rounded-full flex-c bg-main text-white text-3xl">{item.icon}</div>
+        <Link href={item.href} key={idx} className="h-[140px] bg-[#F2E2CA] rounded-[20px] flex items-center justify-center gap-6">
+            <div className="w-12 h-12 rounded-full flex-c bg-main text-white text-3xl">{item.icon}</div>
             <span className="text-2xl font-bold">{item.name}</span>
         </Link>
       ))}
