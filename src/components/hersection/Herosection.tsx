@@ -7,14 +7,20 @@ import { RiSendPlaneFill } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import HijriDate,{toHijri} from 'hijri-date/lib/safe';
+import HijriDate, { toHijri } from 'hijri-date/lib/safe';
+import { useTranslations, useLocale } from "next-intl";
 
 const Herosection = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const lang = useLocale();
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/event/banner`)
+    axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/event/banner`, {
+      headers: {
+        "Accept-Language": lang,
+      },
+    })
       .then((response) => {
         setData(response.data); // Store fetched data
         setLoading(false);
@@ -24,21 +30,21 @@ const Herosection = () => {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [lang]);
 
   const nowGreg = new Date(data?.data?.date);
   const nowHijri = toHijri(nowGreg);
-  
+
   // Format the Hijri Date
   const hijriDay = nowHijri.getDate();
   const hijriMonth = nowHijri.getMonth(); // 0-based index
   const hijriYear = nowHijri.getFullYear();
-  
+
   const hijriMonths = [
     "محرم", "صفر", "ربيع الأول", "ربيع الآخر", "جمادى الأولى", "جمادى الآخرة",
     "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"
   ];
-  
+
   // Formatted Hijri Date
   const formattedHijriDate = `${hijriDay} ${hijriMonths[hijriMonth]} ${hijriYear}`;
 
