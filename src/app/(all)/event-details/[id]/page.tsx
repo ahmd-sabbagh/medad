@@ -78,9 +78,9 @@ const EventDetails = () => {
                 topics={event?.topics}
             />
             <Speakers lang={locale} event_id={params.id} />
-            {/* <AccompanyingExhibition />
-            <PrizeEvents />
-            <Sponsers />
+            {/* <AccompanyingExhibition /> */}
+            <PrizeEvents lang={locale} event_id={params.id} />
+            {/* <Sponsers />
             <OtherActivities /> */}
         </section>
     );
