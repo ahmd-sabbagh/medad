@@ -1,36 +1,29 @@
 "use client";
 
-import { persone } from "@/assets";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import "./style.css"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "next/navigation";
 
 const Speakers = ({ lang, event_id }) => {
   const t = useTranslations();
   const [speakers, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-        .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/speakers/${event_id}`, {
-            headers: {
-                "Accept-Language": lang,
-            },
-        })
-        .then((response) => {
-            setData(response.data);
-            setLoading(false);
-        })
-        .catch((err) => {
-            console.error("Error fetching data:", err);
-            setLoading(false);
-        });
-}, [lang]);
-
-  console.log(speakers?.data)
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/speakers/${event_id}`, {
+        headers: {
+          "Accept-Language": lang,
+        },
+      })
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+      });
+  }, [lang]);
 
   return (
     <section className="py-10 md:py-20">
