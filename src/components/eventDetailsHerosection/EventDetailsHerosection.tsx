@@ -1,4 +1,5 @@
 import { about_bg_shape, herosection_bg } from "@/assets";
+import { calculateTimeDifference } from "@/utils/dateUtils";
 import { t } from "i18next";
 import Link from "next/link";
 import React from "react";
@@ -7,11 +8,12 @@ import { MdDateRange } from "react-icons/md";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { useTranslations, useLocale } from "next-intl";
 
-const EventDetailsHerosection = ({ title, date, location }) => {
+const EventDetailsHerosection = ({ baseDate, title, date, location }) => {
+  const t = useTranslations();
 
   return (
     <section className="bg-image py-18" style={{ backgroundImage: `url(${herosection_bg.src})` }}>
-      <div className="absolute bg-image h-[400px] w-full top-0 left-[-250px]"  style={{ backgroundImage: `url(${about_bg_shape.src})` }}></div>
+      <div className="absolute bg-image h-[400px] w-full top-0"  style={{ backgroundImage: `url(${about_bg_shape.src})` }}></div>
       <div className="container ">
         <div className="flex lg:flex-col items-center gap-4 lg:gap-8">
           <div className="flex flex-col gap-4">
@@ -52,12 +54,7 @@ const EventDetailsHerosection = ({ title, date, location }) => {
           </div>
 
           <div className="flex flex-col lg:flex-row h-fit gap-4 absolute mt-64 pt-8">
-            {[
-              { value: "٣٦٠", label: "يوم" },
-              { value: "٢٤", label: "ساعة" },
-              { value: "٦٠", label: "دقيقة" },
-              { value: "٦٠", label: "ثانية" },
-            ].map((item, index) => (
+            {calculateTimeDifference(baseDate)?.map((item, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center bg-white p-2 lg:p-4 rounded-lg shadow-md lg:w-24"

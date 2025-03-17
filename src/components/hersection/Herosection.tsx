@@ -1,5 +1,6 @@
 "use client";
 import { herosection_bg, load_image } from "@/assets";
+import { calculateTimeDifference } from "@/utils/dateUtils";
 import "./style.css";
 import Image from "next/image";
 import { MdDateRange } from "react-icons/md";
@@ -59,7 +60,7 @@ const Herosection = () => {
             <div className="flex flex-col gap-2 lg:gap-8">
               <div className="">
                 <h2 className="lg:text-2xl font-bold text-main">
-                   الفعالية القادمة
+                  الفعالية القادمة
                 </h2>
                 <h1 className="text-2xl lg:text-4xl xl:text-7xl md:text-3xl font-bold text-white lg:mb-8 max-w-2xl">{data?.data?.title}</h1>
               </div>
@@ -93,12 +94,7 @@ const Herosection = () => {
             </div>
 
             <div className="flex flex-col lg:flex-row h-fit h-full justify-around">
-              {[
-                { value: "٣٦٠", label: "يوم" },
-                { value: "٢٤", label: "ساعة" },
-                { value: "٦٠", label: "دقيقة" },
-                { value: "٦٠", label: "ثانية" },
-              ].map((item, index) => (
+              {calculateTimeDifference(data?.data?.date).map((item, index) => (
                 <div
                   key={index}
                   className="flex max-h-[80px] w-20 flex-col items-center bg-white p-0 justify-center rounded-lg shadow-md "
@@ -117,7 +113,7 @@ const Herosection = () => {
           <div className="flex flex-col items-start w-full lg:px-4 lg:py-12 ">
             <div className="desc-event p-4 md:p-8 rounded-2xl max-w-5xl w-full" style={{ backgroundImage: 'linear-gradient(to left,rgba(226, 173, 99, 0.50),rgba(226, 173, 99, 0.38),rgba(226, 173, 99, 0.28),rgba(226, 173, 99, 0.20),rgba(226, 173, 99, 0.23),rgba(226, 173, 99, 0.14) ,rgba(226, 173, 99, 0.09))' }}>
               <h2 className="text-[#E2AE63] text-2xl font-bold">
-              عن الفعالية
+                عن الفعالية
               </h2>
               <p className="text-white md:text-2xl lg:text-3xl">{data?.data?.description}</p>
             </div>

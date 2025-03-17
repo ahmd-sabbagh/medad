@@ -69,7 +69,7 @@ const EventDetails = () => {
 
     return (
         <section>
-            <EventDetailsHerosection title={event?.title} date={formattedHijriDate} location={event?.location} />
+            <EventDetailsHerosection title={event?.title} baseDate={event?.date} date={formattedHijriDate} location={event?.location} />
             <div className="bg-images-event">
                 <div className="grid grid-cols-2 gap-4">
                     <Image className="img_1" src={event_mask_1} alt="" />
@@ -92,7 +92,7 @@ const EventDetails = () => {
             <Speakers lang={locale} event_id={params.id} />
             <AccompanyingExhibition />
             <PrizeEvents lang={locale} event_id={params.id} />
-            <Schedule />
+            <Schedule schedules={event.schedules} />
             <Sponsers />
             <Anylisis />
             <OtherActivities lang={locale} event_id={params.id} />
