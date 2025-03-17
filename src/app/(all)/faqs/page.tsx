@@ -1,22 +1,53 @@
 "use client";
-import React, { useState } from "react";
-import { useTranslations } from "next-intl";
+
 import Faq from "./subscriptions/components/Faq";
 import HaveQuestion from "@/components/Question/HaveQuestion";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 const FaqsPage = () => {
-  
-  const t = useTranslations();
-  const onsubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
+    const t = useTranslations();
+    const locale = useLocale();
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const params = useParams();
+
+    useEffect(() => {
+        axios
+            .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/faq`, {
+                headers: {
+                    "Accept-Language": locale,
+                },
+            })
+            .then((response) => {
+                setData(response.data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error("Error fetching data:", err);
+                setLoading(false);
+            });
+    }, [locale]);
+
+    if (loading) {
+      return (
+          <div className="flex justify-center items-center h-screen">
+              <p className="text-2xl font-semibold text-gray-500">{t("Loading")}</p>
+          </div>
+      );
+  }
+
+  let faqs = data?.data;
+
   return (
     <section className="py-6 px-12">
       <div className="container">
         <div className="container max-w-7xl mx-auto">
           <div className="flex justify-center items-center gap-4 flex-col w-full ">
-            {[...Array(5)].map((_, index) => (
-                <Faq index={index} question={"ماهي الخدمات اللتي توفرها مداد؟"} answer={"شهد العمل الخيري تطورات كبيرة انتقل معها من الجهود الفردية إلى العمل المؤسسي، مما استدعى تنظيمه لتحقيق أهدافه بفعالية. لذا جاء مداد كمركز متخصص في الدراسات والبحوث لدعم صناع القرار والمختصين، وتعزيز دور العمل الخيري في نهضة الأمة."}/>
+            {faqs?.map((faq, index) => (
+                <Faq index={index} question={faq.question} answer={faq.answer}/>
             ))}
           </div>
           <HaveQuestion />
