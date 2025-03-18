@@ -7,38 +7,9 @@ interface EvevtsYearProps {
   year: number;
 }
 
-const EvevtsYear: React.FC<EvevtsYearProps> = ({ year }) => {
+const EvevtsYear: React.FC<EvevtsYearProps> = ({ year, events }) => {
   const t = useTranslations();
-  const data = [
-    {
-      type: "امسية",
-      image: card_1,
-      name: "فعاليه العطاء لحفظ النعم",
-      date: "١٠ رمضان ١٤٤٨",
-      status: true,
-    },
-    {
-      type: "لقاء",
-      image: card_2,
-      name: "فعاليه العطاء لحفظ النعم",
-      date: "١٠ رمضان ١٤٤٨",
-      status: false,
-    },
-    {
-      type: "امسية",
-      image: card_1,
-      name: "فعاليه العطاء لحفظ النعم",
-      date: "١٠ رمضان ١٤٤٨",
-      status: true,
-    },
-    {
-      type: "لقاء",
-      image: card_2,
-      name: "فعاليه العطاء لحفظ النعم",
-      date: "١٠ رمضان ١٤٤٨",
-      status: false,
-    }
-  ];
+
   return (
     <section className="my-10 md:my-20">
       <div className="container">
@@ -48,8 +19,8 @@ const EvevtsYear: React.FC<EvevtsYearProps> = ({ year }) => {
           </h3>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-3">
-          {data.map((card, idx) => (
-            <EventCard {...card} key={idx} />
+          {events.map((event, idx) => (
+            <EventCard {...event} key={idx} />
           ))}
         </div>
       </div>

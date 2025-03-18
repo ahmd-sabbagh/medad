@@ -1,6 +1,5 @@
 "use client";
 import { herosection_bg, load_image } from "@/assets";
-import { calculateTimeDifference } from "@/utils/dateUtils";
 import "./style.css";
 import Image from "next/image";
 import { MdDateRange } from "react-icons/md";
@@ -10,10 +9,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HijriDate, { toHijri } from 'hijri-date/lib/safe';
 import { useTranslations, useLocale } from "next-intl";
+import { calculateTimeDifference, formatHijriDate } from "@/utils/dateUtils";
 
 const Herosection = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // Ensure error state exists
   const lang = useLocale();
 
   useEffect(() => {
@@ -33,21 +34,9 @@ const Herosection = () => {
       });
   }, [lang]);
 
-  const nowGreg = new Date(data?.data?.date);
-  const nowHijri = toHijri(nowGreg);
+  // Ensure data exists before formatting the date
+  let formattedHijriDate = data?.data?.date ? formatHijriDate(data.data.date) : null;
 
-  // Format the Hijri Date
-  const hijriDay = nowHijri.getDate();
-  const hijriMonth = nowHijri.getMonth(); // 0-based index
-  const hijriYear = nowHijri.getFullYear();
-
-  const hijriMonths = [
-    "محرم", "صفر", "ربيع الأول", "ربيع الآخر", "جمادى الأولى", "جمادى الآخرة",
-    "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"
-  ];
-
-  // Formatted Hijri Date
-  const formattedHijriDate = `${hijriDay} ${hijriMonths[hijriMonth]} ${hijriYear}`;
 
   return (
     <section

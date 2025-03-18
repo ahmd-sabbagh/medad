@@ -1,3 +1,7 @@
+import HijriDate, { toHijri } from 'hijri-date/lib/safe';
+
+// import { toHijri } from "hijri-converter"; // Ensure you have this library installed
+
 export const calculateTimeDifference = (targetDate) => {
     const now = new Date(); // Current date
     const target = new Date(targetDate); // Target date
@@ -25,4 +29,26 @@ export const calculateTimeDifference = (targetDate) => {
         { value: diffMinutes.toLocaleString("ar-EG"), label: "دقيقة" },
         { value: diffSeconds.toLocaleString("ar-EG"), label: "ثانية" }
     ];
+};
+
+export const formatHijriDate = (targetDate) => {
+    if (!targetDate) {
+        throw new Error("Target date is required");
+    }
+
+    const nowGreg = new Date(targetDate); // Use targetDate instead of data?.data?.date
+    const nowHijri = toHijri(nowGreg);
+
+    // Extract Hijri date components
+    const hijriDay = nowHijri.day;
+    const hijriMonth = nowHijri.month - 1; // Adjust 1-based index to 0-based
+    const hijriYear = nowHijri.year;
+
+    const hijriMonths = [
+        "محرم", "صفر", "ربيع الأول", "ربيع الآخر", "جمادى الأولى", "جمادى الآخرة",
+        "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"
+    ];
+
+    // Return formatted Hijri date
+    return `${hijriDay} ${hijriMonths[hijriMonth]} ${hijriYear}`;
 };

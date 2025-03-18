@@ -1,9 +1,38 @@
-.chbx label{
+.chbx label {
     background-color: white;
 }
-.chbx input:checked + label{
-background-color: #FFFFFF80;
-}
-.chbx label:hover{
+
+.chbx input:checked+label {
     background-color: #FFFFFF80;
-    }
+}
+
+.chbx label:hover {
+    background-color: #FFFFFF80;
+}
+
+/* style.css */
+.swiper-pagination-custom {
+    display: flex;
+    gap: 8px;
+    /* Space between dots */
+    justify-content: flex-end;
+    /* Align dots to the right */
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    background-color: #C39E61;
+    /* Dot color */
+    opacity: 0.5;
+    /* Inactive dot opacity */
+    border-radius: 150px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 40px;
+    /* Active dot opacity */
+}
