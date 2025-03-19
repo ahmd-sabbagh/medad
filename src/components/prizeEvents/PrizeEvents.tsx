@@ -35,7 +35,7 @@ const PrizeEvents = ({ lang, event_id}) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 ">
           {data?.data?.map((card, idx) => (
             <Link
-              href={"/prize-info"}
+              href={`/prize-info/${card.id}`}
               className="prizeEventCard block rounded-xl h-[300px] md:h-[400px] lg:h-[524px] p-5 md:p-8 lg:p-10"
               key={idx}
             >
@@ -44,7 +44,7 @@ const PrizeEvents = ({ lang, event_id}) => {
               </div>
               <p className="text-sm md:text-base mt-6 lg:mt-8 text-center">{card.description}</p>
               <div className="text-main md:text-xl mt-6 lg:mt-8 text-center">{card.title}</div>
-              <div className="text-main md:text-xl mt-2 text-center">{card.price}</div>
+              <div className="text-main md:text-xl mt-2 text-center">{card.price} SR</div>
             </Link>
           ))}
         </div>

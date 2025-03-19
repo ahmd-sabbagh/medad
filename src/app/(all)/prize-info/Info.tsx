@@ -2,8 +2,10 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { GoDotFill } from "react-icons/go";
 
-const Info = () => {
+const Info = ({ gift }) => {
   const t = useTranslations();
+
+  console.log(gift)
   return (
     <section className="py-[28px] app-form">
       <div className="container">
@@ -15,9 +17,7 @@ const Info = () => {
             <div>
               <div className="text-xl font-bold">{`1-${t("Terms")}`}</div>
               <p className=" text-[#0C0C0CE5] mt-2">
-                {
-                  "لا نشارك بياناتك مع أي جهة خارجية إلا بموافقتك، أو عند التعامل مع شركاء موثوقين لتحسين الخدمات، أو إذا كان ذلك مطلوبًا قانونيًا."
-                }
+                {gift.condition}
               </p>
             </div>
             <div>
@@ -25,53 +25,22 @@ const Info = () => {
                 "Winning tips"
               )}`}</div>
               <p className=" text-[#0C0C0CE5] mt-2">
-                {
-                  "لا نشارك بياناتك مع أي جهة خارجية إلا بموافقتك، أو عند التعامل مع شركاء موثوقين لتحسين الخدمات، أو إذا كان ذلك مطلوبًا قانونيًا."
-                }
+                {gift.winning_instructions}
               </p>
             </div>
             <div>
-              <div className="text-xl font-bold">{`2-${t(
+              <div className="text-xl font-bold">{`3-${t(
                 "Evaluation points"
               )}`}</div>
               <div className="mt-2">
                 <div className="flex items-center gap-2">
-                  <span className="flex-c">
-                    <GoDotFill />
-                  </span>
-                  <p className=" text-[#0C0C0CE5] mt-2">
-                    {"الخدمات، أو إذا كان ذلك مطلوبًا قانونيًا."}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="flex-c">
-                    <GoDotFill />
-                  </span>
-                  <p className=" text-[#0C0C0CE5] mt-2">
-                    {"الخدمات، أو إذا كان ذلك مطلوبًا قانونيًا."}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="flex-c">
-                    <GoDotFill />
-                  </span>
-                  <p className=" text-[#0C0C0CE5] mt-2">
-                    {"الخدمات، أو إذا كان ذلك مطلوبًا قانونيًا."}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="flex-c">
-                    <GoDotFill />
-                  </span>
-                  <p className=" text-[#0C0C0CE5] mt-2">
-                    {"الخدمات، أو إذا كان ذلك مطلوبًا قانونيًا."}
-                  </p>
+                  {gift.evaluation_points}
                 </div>
               </div>
             </div>
             <div>
-              <div className="text-xl font-bold">{`2-${t("Who can win")}`}</div>
-              <p className=" text-[#0C0C0CE5] mt-2">{"جميع المحاضرين"}</p>
+              <div className="text-xl font-bold">{`4-${t("Who can win")}`}</div>
+              <p className=" text-[#0C0C0CE5] mt-2">{gift.how_is_winner}</p>
             </div>
           </div>
         </div>
