@@ -20,6 +20,9 @@ const NavBarLinks = ({ locale }: Props) => {
   const router = useRouter();
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
+
+  const token = localStorage.getItem("token");
+
   return (
     <div className="NavBarLinks lg:flex-grow">
       {/* Borger Icon */}
@@ -64,12 +67,39 @@ const NavBarLinks = ({ locale }: Props) => {
           </button>
         ))}
         <div className="flex-grow">
-          <Link href="/login" className="px-8 py-1 font-main  text-xl  transition-transform duration-300 hover:scale-105  cursor-pointer float-left">
-            تسجيل الدخول
-          </Link>
-          <Link href={"/register"} className="px-8 py-1 bg-main text-white rounded-sm text-xl transition-transform duration-300 hover:scale-105  cursor-pointer float-left">
-            التسجيل
-          </Link>
+          <div className="flex-grow">
+            {!token ? (
+              <>
+                <Link
+                  href="/login"
+                  className="px-8 py-1 font-main text-xl transition-transform duration-300 hover:scale-105 cursor-pointer float-left"
+                >
+                  تسجيل الدخول
+                </Link>
+                <Link
+                  href="/register"
+                  className="px-8 py-1 bg-main text-white rounded-sm text-xl transition-transform duration-300 hover:scale-105 cursor-pointer float-left"
+                >
+                  التسجيل
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/profile"
+                  className="px-8 py-1 font-main text-xl transition-transform duration-300 hover:scale-105 cursor-pointer float-left"
+                >
+                  البروفايل
+                </Link>
+                <Link
+                  href="/register"
+                  className="px-8 py-1 bg-main text-white rounded-sm text-xl transition-transform duration-300 hover:scale-105 cursor-pointer float-left"
+                >
+                  تسجيل الخروج
+                </Link>
+              </>
+            )}
+          </div>
         </div>
         {/* language */}
         <div className="language mt-4 pt-4 border-t lg:hidden w-full">
