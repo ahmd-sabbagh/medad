@@ -1,6 +1,9 @@
-"use client";
-import { useTranslations } from "next-intl";
+"use client"
+
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./style.css"
+import { useTranslations, useLocale } from "next-intl";
 
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,32 +12,43 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
-import {
-  sponser_1,
-  sponser_2,
-  sponser_3,
-  sponser_4,
-  sponser_5,
-  sponser_6,
-} from "@/assets";
 
 const Sponsers = () => {
   const t = useTranslations();
-  const arr = new Array(6).fill("");
-  const data = [
-    sponser_1,
-    sponser_2,
-    sponser_3,
-    sponser_4,
-    sponser_5,
-    sponser_6,
-    sponser_1,
-    sponser_2,
-    sponser_3,
-    sponser_4,
-    sponser_5,
-    sponser_6,
-  ];
+
+  const locale = useLocale();
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/sponsor`, {
+        headers: {
+          "Accept-Language": locale,
+        },
+      })
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setLoading(false);
+      });
+  }, [locale]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-2xl font-semibold text-gray-500">{t("Loading")}</p>
+      </div>
+    );
+  }
+
+  let sponsors = data?.data;
+
+
+
   return (
     <section className="md:py-10 bg-white">
       <div className="bg-white py-4 px-12">
@@ -64,23 +78,29 @@ const Sponsers = () => {
                 },
               }}
             >
-              {data.map((image, idx) => (
+              {sponsors?.map((sponsor, idx) => (
                 <SwiperSlide key={idx}>
-                  <div className="h-[80px] md:h-[100px] lg:h-[140px] xl:h-[170px] img-fit">
-                    <Image src={image} alt="sponser-image" loading="lazy" />
-                  </div>
-                </SwiperSlide>
+                <div className="relative h-[80px] md:h-[100px] lg:h-[140px] xl:h-[170px]">
+                  <Image
+                    src={sponsor.image}
+                    alt="sponsor-image"
+                    fill
+                    className="object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </SwiperSlide>
               ))}
             </Swiper>
           </div>
           {/* btns */}
           <div className="swiper-buttons-cont">
             <div className="swiper-bnts absolute flex gap-4 justify-center">
-              <button className="arrow-right arrow flex-c text-xl dir-rotate">
-                <IoIosArrowBack />
-              </button>
               <button className="arrow-left arrow flex-c text-xl dir-rotate">
                 <IoIosArrowForward />
+              </button>
+              <button className="arrow-right arrow flex-c text-xl dir-rotate">
+                <IoIosArrowBack />
               </button>
             </div>
           </div>
