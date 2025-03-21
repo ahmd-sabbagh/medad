@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import HaveQuestion from "./components/HaveQuestion";
+import toast, { Toaster } from 'react-hot-toast';
 
 const ProfilePage = () => {
   const t = useTranslations();
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState<string | null>(null);
 
-  // Fetch token in useEffect to avoid Next.js hydration issues
   useEffect(() => {
     setToken(localStorage.getItem("token"));
   }, []);
@@ -31,12 +31,14 @@ const ProfilePage = () => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        alert("Profile updated successfully");
+        console.log("Profile updated successfully");
+        toast.success("Profile updated successfully");
       } else {
-        alert("Failed to update profile");
+        toast.error("Failed to update profile");
       }
     } catch (error) {
       console.error("Error updating profile:", error);
+      toast.error("Something went wrong");
     }
   };
 
@@ -58,12 +60,13 @@ const ProfilePage = () => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        alert("Password updated successfully");
+        toast.success("Password updated successfully");
       } else {
-        alert("Failed to update password");
+        toast.error("Failed to update password");
       }
     } catch (error) {
       console.error("Error updating password:", error);
+      toast.error("Something went wrong");
     }
   };
 
@@ -87,27 +90,26 @@ const ProfilePage = () => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        alert("Other information updated successfully");
+        toast.success("Other information updated successfully");
       } else {
-        alert("Failed to update other information");
+        toast.error("Failed to update other information");
       }
     } catch (error) {
       console.error("Error updating other information:", error);
+      toast.error("Something went wrong");
     }
   };
 
   return (
     <section className="py-12 md:py-20 bg-[#F3F3F3]">
+      <Toaster />
       <div className="container">
-        {/* Grid container for large screens */}
         <div className="lg:grid lg:grid-cols-2 lg:gap-10">
-          {/* Personal Data */}
           <form onSubmit={handleProfileUpdate} className="mt-10">
-        <h4 className="mb-5 text-2xl lg:text-4xl font-bold">
-          {t("Personal information")}
-        </h4>
+            <h4 className="mb-5 text-2xl lg:text-4xl font-bold">
+              {t("Personal information")}
+            </h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-1 gap-5 md:gap-6 lg:gap-10 mt-10">
-              {/* The name */}
               <div className="flex flex-col gap-1">
                 <label className="text-lg lg:text-2xl " htmlFor="name">
                   {t("the name")}
@@ -120,7 +122,6 @@ const ProfilePage = () => {
                   className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
                 />
               </div>
-              {/* phone number */}
               <div className="flex flex-col gap-1">
                 <label className="text-lg lg:text-2xl " htmlFor="phone">
                   {t("Mobile number")}
@@ -133,7 +134,6 @@ const ProfilePage = () => {
                   className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
                 />
               </div>
-              {/* email */}
               <div className="flex flex-col gap-1">
                 <label className="text-lg lg:text-2xl " htmlFor="email">
                   {t("email")}
@@ -155,13 +155,11 @@ const ProfilePage = () => {
             </div>
           </form>
 
-          {/* Update Password */}
           <form onSubmit={handlePasswordUpdate} className="mt-12 lg:mt-10">
             <h4 className="text-2xl lg:text-4xl font-bold">
               {t("Update Password")}
             </h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-1 gap-5 md:gap-6 lg:gap-10 mt-10">
-              {/* password */}
               <div className="flex flex-col gap-1">
                 <label className="text-lg lg:text-2xl " htmlFor="password">
                   {t("password")}
@@ -174,7 +172,6 @@ const ProfilePage = () => {
                   className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
                 />
               </div>
-              {/* confirm password */}
               <div className="flex flex-col gap-1">
                 <label className="text-lg lg:text-2xl " htmlFor="confirmPassword">
                   {t("confirm password")}
@@ -197,7 +194,6 @@ const ProfilePage = () => {
           </form>
         </div>
 
-        {/* Other information */}
         <form onSubmit={handleOtherUpdate} className="mt-12 md:mt-[100px]">
           <h4 className="text-2xl lg:text-4xl font-bold">
             {t("Other information")}
@@ -255,12 +251,12 @@ const ProfilePage = () => {
                 className="py-3 bg-white rounded-xl px-5 lg:px-8 w-full"
               />
             </div>
-            <button
-              type="submit"
-              className="cursor-pointer mt-7 lg:col-span-3 py-3 bg-main font-bold rounded-xl block w-full text-center text-lg lg:text-2xl"
-            >
-              {t("save edit")}
-            </button>
+          <button
+            type="submit"
+            className="cursor-pointer mt-7 lg:col-span-3 py-3 bg-main font-bold rounded-xl block w-full text-center text-lg lg:text-2xl"
+          >
+            {t("save edit")}
+          </button>
           </div>
         </form>
       </div>
