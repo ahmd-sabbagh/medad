@@ -1,7 +1,6 @@
-import { save, star, book, language, any_icon_1 } from "@/assets";
+import { any_icon_1 } from "@/assets";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import "./style.css"
 
 const Anylisis = () => {
@@ -14,7 +13,7 @@ const Anylisis = () => {
         <div className="py-4 w-full">
           <div className="flex justify-around w-full">
             {[...Array(4)].map((__, i) => (
-              <div className="flex flex-col gap-2">
+              <div key={i} className="flex flex-col gap-2">
                 <div className="rounded-full h-24 w-24 bg-white flex flex-col">
                   <div className="text-2xl font-bolder h-24 text-center flex justify-center items-end">3</div>
                   <div className="rounded-b-[100px] bg-main w-full h-full flex  items-center justify-center">

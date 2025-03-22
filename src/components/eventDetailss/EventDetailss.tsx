@@ -1,19 +1,15 @@
 "use client";
 
-import axios from "axios";
 import MainTitle from "./MainTitle";
 import Interviewer from "./Interviewer";
 import EventTopics from "./EventTopics";
-import { useParams } from "next/navigation";
 import { RiSendPlaneFill } from "react-icons/ri";
-import React, { useEffect, useState } from "react";
-import HijriDate, { toHijri } from "hijri-date/lib/safe";
-import { useTranslations, useLocale } from "next-intl";
+import React from "react";
+import { useTranslations } from "next-intl";
 import { MdAccessTime, MdDateRange } from "react-icons/md";
 
 const EventDetailss = ({ title, introduction, description, target, location, date, time, axes, topics }) => {
 
-  const locale = useLocale();
   const t = useTranslations();
 
 

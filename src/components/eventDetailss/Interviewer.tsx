@@ -1,35 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "next/navigation";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 
 const Interviewer = ({ axes }) => {
   const t = useTranslations();
-  // const [data, setData] = useState(null);
-  // const params = useParams();
-  
-  // const [loading, setLoading] = useState(true);
-  const [selectedItem, setSelectedItem] = useState(null);
 
-  // useEffect(() => {
-  //   // Fetch data with the "lang" header
-  //   axios
-  //     .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/axis/${params.id}`, {
-  //       headers: {
-  //         "Accept-Language": lang, // Use the "lang" prop dynamically
-  //       },
-  //     })
-  //     .then((response) => {
-  //       setData(response.data);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       console.error("Error fetching data:", err);
-  //       setLoading(false);
-  //     });
-  // }, [lang]); // Re-fetch data when "lang" changes
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const items = axes;
 
@@ -38,14 +15,6 @@ const Interviewer = ({ axes }) => {
       setSelectedItem(items[0]); // Set default selected item after data loads
     }
   }, [items]);
-
-  // if (loading) {
-  //   return <p className="text-center text-gray-600">جار التحميل...</p>;
-  // }
-
-  // if (!items.length) {
-  //   return <p className="text-center text-red-600">لم يتم العثور على بيانات.</p>;
-  // }
 
   return (
     <>
@@ -63,7 +32,7 @@ const Interviewer = ({ axes }) => {
           {items?.map((item, index) => (
             <div
               key={index}
-              className={`p-5 rounded-xl h-[150px] md:h-[200px] flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md ${
+              className={`z-50 p-5 rounded-xl h-[150px] md:h-[200px] flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md ${
                 selectedItem?.title === item.title
                   ? "bg-[linear-gradient(293.41deg,_rgba(237,221,197,1)_15.1%,_rgba(204,173,122,1)_99.94%)] text-[#53432e] font-bold"
                   : "bg-[#f3e7d6] hover:bg-[#e2d0b9]"
