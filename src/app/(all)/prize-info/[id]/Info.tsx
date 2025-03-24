@@ -8,7 +8,7 @@ const Info = () => {
   const t = useTranslations(); const locale = useLocale();
 
   return (
-    <section className="py-[28px] app-form">
+    <section className="py-[28px] app-form max-w-[90%] max-h-[90%]">
       <div className="container">
         <div className="md:max-w-[80%] mx-auto">
           <h3 className="text-xl md:text-2xl font-bold text-[#170F49]">
