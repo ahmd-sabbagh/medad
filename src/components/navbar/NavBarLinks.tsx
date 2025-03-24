@@ -21,7 +21,11 @@ const NavBarLinks = ({ locale }: Props) => {
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
 
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, []);
 
   return (
     <div className="NavBarLinks lg:flex-grow">
