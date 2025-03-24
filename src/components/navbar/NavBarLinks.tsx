@@ -10,7 +10,6 @@ import { IoClose } from "react-icons/io5";
 import Image from "next/image";
 import { navbar_logo } from "@/assets";
 import Link from "next/link";
-
 interface Props {
   locale: string;
 }
