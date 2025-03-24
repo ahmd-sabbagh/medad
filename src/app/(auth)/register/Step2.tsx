@@ -4,6 +4,8 @@ import DropDownMenu from "@/components/dropDownMenu/DropDownMenu";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import React, { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 interface Step2Props {
     setStep: (step: number) => void;
@@ -11,6 +13,15 @@ interface Step2Props {
 
 const Step2: React.FC<Step2Props> = ({ setStep }) => {
     const t = useTranslations();
+    const router = useRouter();
+    const [formData, setFormData] = useState({
+        side: "",
+        sector: "Helwan", // Default value
+        position: "",
+        gender: "",
+        image: null as File | null
+    });
+    const [error, setError] = useState("");
     const [area, setArea] = useState("Helwan");
     const [gender, setGender] = useState(t("gender_"));
 
@@ -18,25 +29,83 @@ const Step2: React.FC<Step2Props> = ({ setStep }) => {
         title: t("Sector_type_"),
         data: ["Helwan", "Naser City", "Alazhar Parck", "Madinty"],
         state: area,
-        setState: setArea,
+        setState: (value: string) => {
+            setArea(value);
+            setFormData(prev => ({ ...prev, sector: value }));
+        },
     };
+
     const genderDrop = {
         title: t("gender_"),
         data: ["male", "female"],
         state: gender,
-        setState: setGender,
+        setState: (value: string) => {
+            setGender(value);
+            setFormData(prev => ({ ...prev, gender: value }));
+        },
     };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value
+        });
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setFormData(prev => ({
+                ...prev,
+                image: e.target.files![0]
+            }));
+        }
+    };
+
+    const handleSubmit = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                setError("Authentication token not found");
+                return;
+            }
+
+            const formDataToSend = new FormData();
+            formDataToSend.append('side', formData.side);
+            formDataToSend.append('sector', formData.sector);
+            formDataToSend.append('position', formData.position);
+            formDataToSend.append('gender', formData.gender);
+            if (formData.image) {
+                formDataToSend.append('image', formData.image);
+            }
+
+            const response = await axios.post('/api/auth/register/complete', formDataToSend, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data',
+                }
+            });
+
+            if (response.data.success) {
+                router.push('/dashboard'); // or wherever you want to redirect after successful registration
+            }
+        } catch (err: any) {
+            setError(err.response?.data?.message || "An error occurred");
+        }
+    };
+
     return (
         <div className="mt-1 flex flex-col gap-1">
-            {/*  */}
+            {error && <div className="text-red-500 text-center mb-2">{error}</div>}
             <div className="flex flex-col gap-0">
-                <label htmlFor="the_side" className="md:text-lg font-medium">
+                <label htmlFor="side" className="md:text-lg font-medium">
                     {t("The_side_")} <span className="mx-2">*</span>
                 </label>
                 <div className="relative bg-main-20 text-main rounded-[18px] h-[40px] md:h-[50px]">
                     <input
-                        id="the_side"
+                        id="side"
                         type="text"
+                        value={formData.side}
+                        onChange={handleChange}
                         placeholder={t("Enter the responsible party")}
                         className="w-full px-5 h-full pl-10 bg-input pr-10 text-bolder"
                     />
@@ -57,17 +126,19 @@ const Step2: React.FC<Step2Props> = ({ setStep }) => {
                     </span>
                 </div>
             </div>
-            {/*  */}
+            
             <DropDownMenu {...areaDrop} />
-            {/*  */}
+            
             <div className="flex flex-col gap-0">
-                <label htmlFor="Position_" className="md:text-lg font-medium">
+                <label htmlFor="position" className="md:text-lg font-medium">
                     {t("Position_")} <span className="mx-2">*</span>
                 </label>
                 <div className="relative bg-main-20 text-main rounded-[18px] h-[40px] md:h-[50px]">
                     <input
-                        id="Position_"
+                        id="position"
                         type="text"
+                        value={formData.position}
+                        onChange={handleChange}
                         placeholder={t("Enter your position")}
                         className="w-full px-5 h-full pl-10 bg-input pr-10 text-bolder"
                     />
@@ -94,25 +165,35 @@ const Step2: React.FC<Step2Props> = ({ setStep }) => {
                     </span>
                 </div>
             </div>
-            {/*  */}
+            
             <DropDownMenu {...genderDrop} />
-            {/* upload photo */}
+            
             <div>
                 <label htmlFor="up_ph" className="flex flex-col gap-0">
                     <span className="md:text-lg font-medium">{t("profile_image")}</span>
                     <div className="px-5 h-[40px] md:h-[50px] bg-input rounded-[18px] flex items-center cursor-pointer">
-                        <span className="text-main">{t("enter_photo_image")}</span>
+                        <span className="text-main">
+                            {formData.image ? formData.image.name : t("enter_photo_image")}
+                        </span>
                     </div>
-                    <input type="file" className="hidden" id="up_ph" />
+                    <input 
+                        type="file" 
+                        className="hidden" 
+                        id="up_ph" 
+                        onChange={handleFileChange}
+                        accept="image/*"
+                    />
                 </label>
             </div>
+
             <button
                 type="button"
                 className={`mt-2 bg-main flex-c font-medium md:text-xl text-white px-4 rounded-[8px] h-[40px]`}
-                onClick={() => { setStep(1) }}
+                onClick={handleSubmit}
             >
-                {t("init_acc")}
+                {t("Complete Registration")}
             </button>
+            
             <div className="flex my-8 items-center justify-center gap-1">
                 <span>{t("hav_acc")}</span>
                 <Link href={"/login"} className="text-main">

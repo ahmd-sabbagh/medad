@@ -1,7 +1,9 @@
 "use client";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 interface Step1Props {
     setStep: (step: number) => void;
@@ -9,8 +11,50 @@ interface Step1Props {
 
 const Step1: React.FC<Step1Props> = ({ setStep }) => {
     const t = useTranslations();
+    const router = useRouter();
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+    });
+    const [error, setError] = useState("");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value
+        });
+    };
+
+    const handleSubmit = async () => {
+        try {
+            if (formData.password !== formData.confirmPassword) {
+                setError("Passwords do not match");
+                return;
+            }
+
+            const response = await axios.post('/api/auth/register', {
+                name: formData.name,
+                phone: formData.phone,
+                email: formData.email,
+                password: formData.password,
+            });
+
+            if (response.data.access_token) {
+                // Store token in localStorage or other state management solution
+                localStorage.setItem('token', response.data.access_token);
+                setStep(2);
+            }
+        } catch (err: any) {
+            setError(err.response?.data?.message || "An error occurred");
+        }
+    };
+
     return (
         <div className="mt-1 flex flex-col gap-1 pb-4">
+            {error && <div className="text-red-500 text-center mb-2">{error}</div>}
             {/*  */}
             <div className="flex flex-col gap-0">
                 <label htmlFor="name" className="md:text-lg font-medium">
@@ -20,6 +64,8 @@ const Step1: React.FC<Step1Props> = ({ setStep }) => {
                     <input
                         id="name"
                         type="text"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder={t("Full Name")}
                         className="w-full px-5 h-full pl-10 bg-input pr-10 text-bolder"
                     />
@@ -48,6 +94,8 @@ const Step1: React.FC<Step1Props> = ({ setStep }) => {
                     <input
                         id="phone"
                         type="text"
+                        value={formData.phone}
+                        onChange={handleChange}
                         placeholder={t("Phone Number")}
                         className="w-full px-5 h-full pl-10 bg-input pr-10 text-bolder"
                     />
@@ -76,6 +124,8 @@ const Step1: React.FC<Step1Props> = ({ setStep }) => {
                     <input
                         id="email"
                         type="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder={t("Email Address")}
                         className="w-full px-5 h-full pl-10 bg-input pr-10 text-bolder"
                     />
@@ -96,6 +146,8 @@ const Step1: React.FC<Step1Props> = ({ setStep }) => {
                     <input
                         id="password"
                         type="password"
+                        value={formData.password}
+                        onChange={handleChange}
                         placeholder={t("Password")}
                         className="w-full px-5 h-full pl-10 bg-input pr-10 text-bolder"
                     />
@@ -124,6 +176,8 @@ const Step1: React.FC<Step1Props> = ({ setStep }) => {
                     <input
                         id="confirm-password"
                         type="password"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
                         placeholder={t("Confirm Password")}
                         className="w-full px-5 h-full pl-10 bg-input pr-10 text-bolder"
                     />
@@ -147,7 +201,7 @@ const Step1: React.FC<Step1Props> = ({ setStep }) => {
             <button
                 type="button"
                 className={`mt-2 bg-main flex-c font-medium md:text-xl text-white px-4 rounded-[8px] h-[40px]`}
-                onClick={() => { setStep(1) }}
+                onClick={handleSubmit}
             >
                 {t("init_acc")}
             </button>
