@@ -32,7 +32,7 @@ const Speakers = ({ lang, event_id }) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
           {speakers?.data?.map((speaker, index) => (
             <div className="img-fit h-[200px] md:h-[270px] rounded-xl overflow-hidden relative" key={index}>
-              <Image src={speaker.image} width={300} height={200} alt="persone" loading="lazy" />
+              <img src={speaker.image} width={300} height={200} alt="persone" loading="lazy" />
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black to-black/20"></div>
               <div className="absolute w-full bottom-0 left-0 px-4 py-3">
                 <div className="font-bold text-white">{speaker.name}</div>

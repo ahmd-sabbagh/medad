@@ -81,10 +81,10 @@ const Sponsers = () => {
               {sponsors?.map((sponsor, idx) => (
                 <SwiperSlide key={idx}>
                 <div className="relative h-[80px] md:h-[100px] lg:h-[140px] xl:h-[170px]">
-                  <Image
+                  <img
                     src={sponsor.image}
                     alt="sponsor-image"
-                    fill
+                    // fill
                     className="object-contain"
                     loading="lazy"
                   />

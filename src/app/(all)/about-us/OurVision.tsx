@@ -62,7 +62,7 @@ const OurVision = () => {
           {about.map((item, idx) => (
             <div className="flex items-center bg-[#E2AE6352] rounded-[36px] p-4 md:p-5 gap-4 md:gap-8" key={idx}>
               <div className="flex-c min-w-[45px]">
-                <Image src={item.icon} alt="icon" loading="lazy" />
+                <img src={item.icon} alt="icon" loading="lazy" />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-xl md:text-2xl">{item.title}</span>

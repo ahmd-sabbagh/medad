@@ -7,7 +7,7 @@ import { RiSendPlaneFill } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import HijriDate, { toHijri } from 'hijri-date/lib/safe';
+// import HijriDate, { toHijri } from 'hijri-date/lib/safe';
 import { useTranslations, useLocale } from "next-intl";
 import { calculateTimeDifference, formatHijriDate } from "@/utils/dateUtils";
 
@@ -115,10 +115,10 @@ const Herosection = () => {
               ) : (
                 <>
                   {data?.data?.image[0] && (
-                    <Image src={data?.data?.image[0]} width={300} height={200} alt="Event" className="flex-grow xl:h-[200px] xl:h-[300px] lg:h-[160px] lg:h-[220px] md:h-[140px] md:h-[210px] h-[100px] h-[200px] object-cover rounded-xl w-full" />
+                    <img src={data?.data?.image[0]} width={300} height={200} alt="Event" className="flex-grow xl:h-[200px] xl:h-[300px] lg:h-[160px] lg:h-[220px] md:h-[140px] md:h-[210px] h-[100px] h-[200px] object-cover rounded-xl w-full" />
                   )}
                   {data?.data?.image[1] && (
-                    <Image src={data?.data?.image[1]} width={300} height={200} alt="Event" className="flex-grow xl:h-[200px] xl:h-[300px] lg:h-[160px] lg:h-[220px] md:h-[140px] md:h-[210px] h-[100px] h-[200px] object-cover rounded-xl w-full" />
+                    <img src={data?.data?.image[1]} width={300} height={200} alt="Event" className="flex-grow xl:h-[200px] xl:h-[300px] lg:h-[160px] lg:h-[220px] md:h-[140px] md:h-[210px] h-[100px] h-[200px] object-cover rounded-xl w-full" />
                   )}
                 </>
               )}
