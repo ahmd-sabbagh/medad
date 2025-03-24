@@ -34,8 +34,8 @@ const AuthShape = async ({ children ,image}: Props) => {
           <div className="py-10 flex justify-end text-white">
             <AuthLanguage locale={locale} />
           </div>
-        </div>
         {children}
+        </div>
       </div>
     </section>
   );

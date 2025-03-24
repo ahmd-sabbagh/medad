@@ -7,18 +7,13 @@ import { useRouter } from "next/navigation";
 
 interface Step1Props {
     setStep: (step: number) => void;
+    formData:any;
+    setFormData:any;
 }
 
-const Step1: React.FC<Step1Props> = ({ setStep }) => {
+const Step1: React.FC<Step1Props> = ({ setStep ,formData ,setFormData}) => {
     const t = useTranslations();
     const router = useRouter();
-    const [formData, setFormData] = useState({
-        name: "",
-        phone: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-    });
     const [error, setError] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,20 +27,25 @@ const Step1: React.FC<Step1Props> = ({ setStep }) => {
         try {
             if (formData.password !== formData.confirmPassword) {
                 setError("Passwords do not match");
+                const passwordInput = document.getElementById("password") as HTMLInputElement;
+                const confirmPasswordInput = document.getElementById("confirm-password") as HTMLInputElement;
+                if (passwordInput) passwordInput.classList.add("border-red-500");
+                if (confirmPasswordInput) confirmPasswordInput.classList.add("border-red-500");
                 return;
             }
 
-            const response = await axios.post('/api/auth/register', {
-                name: formData.name,
-                phone: formData.phone,
-                email: formData.email,
-                password: formData.password,
-            });
-
-            if (response.data.access_token) {
-                // Store token in localStorage or other state management solution
-                localStorage.setItem('token', response.data.access_token);
+            if (formData.name && formData.phone && formData.email && formData.password && formData.confirmPassword) {
                 setStep(2);
+            } else {
+                setError("Please fill in all required fields");
+                const inputs = document.querySelectorAll("input");
+                inputs.forEach((input) => {
+                    if (!input.value) {
+                        input.classList.add("border-red-500");
+                    } else {
+                        input.classList.remove("border-red-500");
+                    }
+                });
             }
         } catch (err: any) {
             setError(err.response?.data?.message || "An error occurred");
@@ -169,12 +169,12 @@ const Step1: React.FC<Step1Props> = ({ setStep }) => {
                 </div>
             </div>
             <div className="flex flex-col gap-0">
-                <label htmlFor="confirm-password" className="md:text-lg font-medium">
+                <label htmlFor="confirmPassword" className="md:text-lg font-medium">
                     {t("Confirm Password")} <span className="mx-2">*</span>
                 </label>
                 <div className="relative bg-main-20 text-main rounded-[18px] h-[40px] md:h-[50px]">
                     <input
-                        id="confirm-password"
+                        id="confirmPassword"
                         type="password"
                         value={formData.confirmPassword}
                         onChange={handleChange}

@@ -40,7 +40,7 @@ const EventCard = ({ id, tags, image, title, date, has_favorite }: Props) => {
             <h4 className="text-xl text-main font-bold">{title}</h4>
             <div className="flex items-start gap-2 justify-between">
               <p className="font-bold text-[#B2AFAF] ">{date}</p>
-              {has_favorite ? (
+              {!has_favorite ? (
                 <button 
                   onClick={() => setIsDrawerOpen(true)} 
                   className="h-[28px] rounded-[5px] flex-c px-3 bg-main block font-bold mt-2"
@@ -58,7 +58,14 @@ const EventCard = ({ id, tags, image, title, date, has_favorite }: Props) => {
       </div>
 
       {isDrawerOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+        <div 
+          className="fixed inset-0 bg-[#00000088] z-50" 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setIsDrawerOpen(false);
+            }
+          }}
+        >
           <div className="fixed right-0 top-0 h-full w-[90%] md:w-[600px] bg-white overflow-y-auto">
             <button 
               onClick={() => setIsDrawerOpen(false)}
