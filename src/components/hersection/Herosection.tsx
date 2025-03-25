@@ -10,12 +10,15 @@ import axios from "axios";
 // import HijriDate, { toHijri } from 'hijri-date/lib/safe';
 import { useTranslations, useLocale } from "next-intl";
 import { calculateTimeDifference, formatHijriDate } from "@/utils/dateUtils";
+import Form from "@/app/(all)/submit-application-event/Form";
 
 const Herosection = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); // Ensure error state exists
   const lang = useLocale();
+  const t = useTranslations();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/event/banner`, {
@@ -41,7 +44,7 @@ const Herosection = () => {
   return (
     <section
       className={`Herosection py-10 flex-c`}
-      style={{ backgroundImage: `url(${herosection_bg.src})` }}
+      style={{ backgroundImage: `url(${data?.data?.main_banner ? data?.data?.main_banner :herosection_bg.src})` }}
     >
       <div className="container">
         <div className="grid gap-4 md:gap-0 lg:grid-cols-2">
@@ -71,8 +74,8 @@ const Herosection = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <button className="px-8 py-1 bg-main text-black rounded-sm text-xl font-black  transition-transform duration-300 hover:scale-105  cursor-pointer">
-                  سجل الآن
+                <button onClick={() => setIsDrawerOpen(true)}  className="px-8 py-1 bg-main text-black rounded-sm text-xl font-black  transition-transform duration-300 hover:scale-105  cursor-pointer">
+                {t("Register now")}
                 </button>
                 <button className="px-1 py-1 bg-white rounded-sm  transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <div className="text-2xl text-main">
@@ -126,6 +129,27 @@ const Herosection = () => {
           </div>
         </div>
       </div>
+
+      {isDrawerOpen && (
+        <div 
+          className="fixed inset-0 bg-[#00000088] z-555555" 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setIsDrawerOpen(false);
+            }
+          }}
+        >
+          <div className="fixed right-0 top-0 h-full w-[90%] md:w-[600px] bg-white overflow-y-auto">
+            <button 
+              onClick={() => setIsDrawerOpen(false)}
+              className="absolute top-4 right-4 text-2xl p-2"
+            >
+              ×
+            </button>
+            <Form onClose={() => setIsDrawerOpen(false)} eventId={data?.data?.id} />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

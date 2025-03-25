@@ -69,7 +69,7 @@ const EventDetails = () => {
 
     return (
         <section>
-            <EventDetailsHerosection title={event?.title} baseDate={event?.date} date={formattedHijriDate} location={event?.location} />
+            <EventDetailsHerosection title={event?.title} baseDate={event?.date} date={formattedHijriDate} location={event?.location} bg={event.main_banner}/>
             <div className="bg-images-event">
                 <div className="grid grid-cols-2 gap-4">
                     <Image className="img_1" src={event_mask_1} alt="" />

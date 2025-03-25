@@ -59,7 +59,7 @@ const EventCard = ({ id, tags, image, title, date, has_favorite }: Props) => {
 
       {isDrawerOpen && (
         <div 
-          className="fixed inset-0 bg-[#00000088] z-50" 
+          className="fixed inset-0 bg-[#00000088] z-5555555" 
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setIsDrawerOpen(false);

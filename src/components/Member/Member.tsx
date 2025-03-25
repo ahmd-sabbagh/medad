@@ -7,14 +7,13 @@ const Member = ({ member }) => {
 
   return (
     <div className="bg-white member text-center rounded-xl p-4 pt-8">
-      <Image
+      <img 
         src={member.image}
         width={128}
         height={128}
         alt="Profile"
         className="rounded-full mx-auto"
       />
-
       <h2 className="text-xl" style={{ fontWeight: "bolder !important", marginBottom: "5px" }}>{member.name}</h2>
       <p className="text-gray-600">{member.job_title}</p>
       <div className="flex justify-center mt-4 space-x-4 mt-6">

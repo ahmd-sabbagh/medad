@@ -6,8 +6,8 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
     images: {
         remotePatterns: [{
-            protocol: "http",
-            hostname: "127.0.0.1",
+            protocol: "https",
+            hostname: "medad.magdy-tech.solutions",
             port: "",
             pathname: "/assets/**"
           }],

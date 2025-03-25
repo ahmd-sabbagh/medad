@@ -46,7 +46,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 items-center gap-5 mx-8">
           <div className="order-2 md:order-1 mt-[-60px]">
             <div className="w-[225px] md:m-0">
-              <Image src={logo} alt="logo" loading="lazy" className="object-contain" width={200} height={100} />
+              <img src={logo} alt="logo" loading="lazy" className="object-contain" width={200} height={100} />
             </div>
             <div className="grid grid-cols-2 gap-2 md:gap-4 mt-6 max-w-[400px] mr-4">
               <Link href={"/privacy-policy"} className="text-main md:text-xl">

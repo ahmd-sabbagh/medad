@@ -10,22 +10,22 @@ const PagesAbout = () => {
     {
       icon: <BsExclamationLg />,
       name: t("Board of Directors"),
-      href: "",
+      href: "/managers",
     },
     {
       icon: <FaUsers />,
       name: t("Staff"),
-      href: "",
+      href: "/work-team",
     },
     {
       icon: <FaUsers />,
       name: t("Laws and policies"),
-      href: "",
+      href: "/privacy-policy",
     },
     {
       icon: <FaUsers />,
-      name: t("Board of Directors"),
-      href: "",
+      name: t("About Us"),
+      href: "/about-us",
     },
   ];
   return (

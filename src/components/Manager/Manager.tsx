@@ -8,7 +8,7 @@ const Manager = ({ admin }) => {
 
   return (
     <div className=" text-center rounded-xl p-4 pt-8">
-      <Image
+      <img
         src={admin.image}
         width={128}
         height={128}

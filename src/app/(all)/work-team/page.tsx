@@ -1,5 +1,4 @@
 "use client"
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 // import "./style.css"
@@ -37,16 +36,13 @@ const WorkTeamPage = () => {
       </div>
     );
   }
-
   let team = data?.data;
-
-
   return (
     <section className="px-12 bg-[#FAFAFA]">
       <div className="container">
         <div className="mx-auto grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-3">
         {team?.map((member, index) => (
-          <Member member={member} />
+          <Member key={index} member={member} />
         ))}
         </div>
         <div className="mb-16">

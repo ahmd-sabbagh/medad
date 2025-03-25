@@ -90,10 +90,9 @@ const LatestEventsCard = () => {
                 <div className="bg-white rounded-xl overflow-hidden shadow-2xl flex flex-col lg:flex-row items-center lg:gap-6">
                   {/* image */}
                   <div className="relative img-fit lg:h-[314px] h-[150px] md:h-[250px] w-full xl:min-w-[342px] lg:max-w-[260px]">
-                    <Image
+                    <img
                       src={event.image}
                       alt="event-image"
-                      fill
                       className="object-cover"
                       loading="lazy"
                     />

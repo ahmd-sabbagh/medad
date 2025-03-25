@@ -1,7 +1,7 @@
 "use client"
 
 import { card_1, card_2 } from "@/assets";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import EventCard from "../eventCard/EventCard";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,6 +9,7 @@ import Link from "next/link";
 
 const Events = () => {
   const t = useTranslations();
+  const locale = useLocale();
   // const data = [
   //   {
   //     type: "امسية",
@@ -23,8 +24,11 @@ const Events = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/event`)
-      .then((response) => {
+    axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/event`,{
+      headers: {
+        "Accept-Language": locale,
+      }
+    }).then((response) => {
         setData(response.data); // Store fetched data
         setLoading(false);
       })

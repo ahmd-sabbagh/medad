@@ -8,11 +8,11 @@ import { MdDateRange } from "react-icons/md";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { useTranslations, useLocale } from "next-intl";
 
-const EventDetailsHerosection = ({ baseDate, title, date, location }) => {
+const EventDetailsHerosection = ({ baseDate, title, date, location,bg }) => {
   const t = useTranslations();
 
   return (
-    <section className="bg-image py-18" style={{ backgroundImage: `url(${herosection_bg.src})` }}>
+    <section className="bg-image py-18" style={{ backgroundImage: `url(${bg ? bg : herosection_bg.src})` }}>
       <div className="absolute bg-image h-[400px] w-full top-0"  style={{ backgroundImage: `url(${about_bg_shape.src})` }}></div>
       <div className="container ">
         <div className="flex lg:flex-col items-center gap-4 lg:gap-8">
