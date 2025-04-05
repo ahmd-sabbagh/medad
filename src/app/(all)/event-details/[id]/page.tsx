@@ -11,7 +11,6 @@ import {
 } from "@/components";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import HijriDate, { toHijri } from 'hijri-date/lib/safe';
 import { useParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
@@ -55,11 +54,14 @@ const EventDetails = () => {
     const event = data?.data;
 
     const nowGreg = new Date(event?.date);
-    const nowHijri = toHijri(nowGreg);
-    const hijriDay = nowHijri.getDate();
-    const hijriMonth = nowHijri.getMonth();
-    const hijriYear = nowHijri.getFullYear();
-
+    // const nowHijri = toHijri(nowGreg);
+    // const hijriDay = nowHijri.getDate();
+    // const hijriMonth = nowHijri.getMonth();
+    // const hijriYear = nowHijri.getFullYear();
+    const hijriDate = new Date(event?.date);
+    const hijriDay = hijriDate.getDate();
+    const hijriMonth = hijriDate.getMonth();
+    const hijriYear = hijriDate.getFullYear();
     const hijriMonths = [
         "محرم", "صفر", "ربيع الأول", "ربيع الآخر", "جمادى الأولى", "جمادى الآخرة",
         "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"

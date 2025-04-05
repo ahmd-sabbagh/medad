@@ -6,12 +6,22 @@ import "./style.css"
 import { useTranslations, useLocale } from "next-intl";
 
 import { message_icon, view_icon } from "@/assets";
-import Image from "next/image";
 
 const OurVision = () => {
+  interface AboutData {
+    our_message: string;
+    our_vision: string;
+  }
+  
+  interface AboutItem {
+    icon: any;
+    title: string;
+    description: string;
+  }
   const t = useTranslations();
   const locale = useLocale();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
+  const [about, setAbout] = useState<AboutItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,6 +33,18 @@ const OurVision = () => {
       })
       .then((response) => {
         setData(response.data);
+        setAbout([
+          {
+            icon: message_icon,
+            title: t("the message"),
+            description: response.data?.our_message,
+          },
+          {
+            icon: view_icon,
+            title: t("The vision"),
+            description: response.data?.our_vision,
+          },
+        ]);
         setLoading(false);
       })
       .catch((err) => {
@@ -39,18 +61,6 @@ const OurVision = () => {
     );
   }
 
-  const about = [
-    {
-      icon: message_icon,
-      title: t("the message"),
-      description: data?.our_message,
-    },
-    {
-      icon: view_icon,
-      title: t("The vision"),
-      description: data?.our_vision,
-    },
-  ];
 
   return (
     <section className="py-10 md:py-20">

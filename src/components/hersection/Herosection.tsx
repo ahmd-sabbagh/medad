@@ -13,7 +13,18 @@ import { calculateTimeDifference, formatHijriDate } from "@/utils/dateUtils";
 import Form from "@/app/(all)/submit-application-event/Form";
 
 const Herosection = () => {
-  const [data, setData] = useState(null);
+  interface EventData {
+    data:{
+      date: string;
+      title: string;
+      location: string;
+      description: string;
+      main_banner: string;
+      image: string[];
+      id: number;
+    }
+  }
+  const [data, setData] = useState<EventData | null>(null); // Initialize data as null
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); // Ensure error state exists
   const lang = useLocale();
@@ -146,7 +157,7 @@ const Herosection = () => {
             >
               ×
             </button>
-            <Form onClose={() => setIsDrawerOpen(false)} eventId={data?.data?.id} />
+            <Form onClose={() => setIsDrawerOpen(false)}  eventId={data?.data?.id} />
           </div>
         </div>
       )}
