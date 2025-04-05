@@ -52,9 +52,9 @@ const Sponsers = () => {
   return (
     <section className="md:py-10 bg-white">
       <div className="bg-white py-4 px-12">
-        <div className="relative mt-4 md:mt-5">
+        {/* <div className="relative mt-4 md:mt-5"> */}
           {/* swiper */}
-          <div className="swiper-cont mx-auto relative overflow-hidden">
+          <div className="swiper-cont mx-auto relative overflow-hidden ">
             <Swiper
               slidesPerView={2}
               navigation={{ nextEl: ".arrow-left", prevEl: ".arrow-right" }}
@@ -80,7 +80,7 @@ const Sponsers = () => {
             >
               {sponsors?.map((sponsor, idx) => (
                 <SwiperSlide key={idx}>
-                <div className="relative h-[80px] md:h-[100px] lg:h-[140px] xl:h-[170px]">
+                <div className="relative h-[80px] md:h-[100px] lg:h-[140px] xl:h-[170px] ">
                   <img
                     src={sponsor.image}
                     alt="sponsor-image"
@@ -92,8 +92,6 @@ const Sponsers = () => {
               </SwiperSlide>
               ))}
             </Swiper>
-          </div>
-          {/* btns */}
           <div className="swiper-buttons-cont">
             <div className="swiper-bnts absolute flex gap-4 justify-center">
               <button className="arrow-left arrow flex-c text-xl dir-rotate">
@@ -104,8 +102,10 @@ const Sponsers = () => {
               </button>
             </div>
           </div>
+          </div>
+          {/* btns */}
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 };
