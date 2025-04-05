@@ -22,9 +22,36 @@ const EventDetails = () => {
 
     const t = useTranslations();
     const locale = useLocale();
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<Data | null>(null); // Initialize data as null
     const [loading, setLoading] = useState(true);
     const params = useParams();
+interface Data {
+    data: EventData;
+}
+interface EventData    {
+        date: string;
+        title: string;
+        location: string;
+        description: string;
+        main_banner: string;
+        image: string[];
+        id: number;
+        introduction: string;
+        target: string;
+        time: string;
+        axes: string[];
+        topics: string[];
+        schedules: {
+            id: number;
+            title: string;
+            description: string;
+            date: string;
+            time: string;
+            location: string;
+            event_id: number;
+        }[];
+    };
+
 
     useEffect(() => {
         axios
@@ -53,12 +80,12 @@ const EventDetails = () => {
 
     const event = data?.data;
 
-    const nowGreg = new Date(event?.date);
+    const nowGreg = new Date(event?.date || "");
     // const nowHijri = toHijri(nowGreg);
     // const hijriDay = nowHijri.getDate();
     // const hijriMonth = nowHijri.getMonth();
     // const hijriYear = nowHijri.getFullYear();
-    const hijriDate = new Date(event?.date);
+    const hijriDate = new Date(event?.date || "");
     const hijriDay = hijriDate.getDate();
     const hijriMonth = hijriDate.getMonth();
     const hijriYear = hijriDate.getFullYear();
@@ -71,7 +98,7 @@ const EventDetails = () => {
 
     return (
         <section>
-            <EventDetailsHerosection title={event?.title} baseDate={event?.date} date={formattedHijriDate} location={event?.location} bg={event.main_banner}/>
+            <EventDetailsHerosection title={event?.title} baseDate={event?.date} date={formattedHijriDate} location={event?.location} bg={event?.main_banner}/>
             <div className="bg-images-event">
                 <div className="grid grid-cols-2 gap-4">
                     <Image className="img_1" src={event_mask_1} alt="" />
@@ -94,7 +121,7 @@ const EventDetails = () => {
             <Speakers lang={locale} event_id={params.id} />
             <AccompanyingExhibition />
             <PrizeEvents lang={locale} event_id={params.id} />
-            <Schedule schedules={event.schedules} />
+            <Schedule schedules={event?.schedules} />
             <Sponsers />
             <Anylisis />
             <OtherActivities lang={locale} event_id={params.id} />
