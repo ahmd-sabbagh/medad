@@ -4,8 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const EventTopics = ({ topics }) => {
+const EventTopics = ({ topics }:{topics:string[];}) => {
     const t = useTranslations()
+
   return (
     <div className="mt-8 ">
       <div className="flex flex-col gap-3 justify-center">

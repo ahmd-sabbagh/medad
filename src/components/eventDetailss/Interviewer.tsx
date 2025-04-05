@@ -3,10 +3,19 @@
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
-const Interviewer = ({ axes }) => {
+interface Axis {
+  title: string;
+  description: string;
+}
+
+interface InterviewerProps {
+  axes: Axis[];
+}
+
+const Interviewer: React.FC<InterviewerProps> = ({ axes }) => {
   const t = useTranslations();
 
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState<Axis | null>(null);
 
   const items = axes;
 

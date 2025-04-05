@@ -12,7 +12,7 @@ const Footer = () => {
   const locale = useLocale();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [logo, setLogo] = useState("");
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/setting/get-logo`, {
@@ -22,6 +22,7 @@ const Footer = () => {
       })
       .then((response) => {
         setData(response.data);
+        setLogo(response.data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -38,7 +39,6 @@ const Footer = () => {
     );
   }
 
-  let logo = data?.logo;
 
   return (
     <section className="bg-black py-8 medad-footer">

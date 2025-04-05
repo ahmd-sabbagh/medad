@@ -1,8 +1,7 @@
 import { useTranslations } from "next-intl";
 import React from "react";
-import { GoDotFill } from "react-icons/go";
-
-const Info = ({ gift }) => {
+const Info: React.FC<{ gift: GiftProps }> = ({ gift }) => {
+  
   const t = useTranslations();
 
   console.log(gift)

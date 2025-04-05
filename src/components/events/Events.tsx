@@ -22,7 +22,8 @@ const Events = () => {
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [events, setEvents] = useState<EventCardProps[]>([]);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/event`,{
       headers: {
@@ -48,8 +49,8 @@ const Events = () => {
           <h3 className="text-3xl font-bold">{t("Events")}</h3>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-3">
-          {data?.data?.map((card, idx) => (
-            <EventCard {...card} key={idx} />
+          {events?.map((card, idx) => (
+            <EventCard {...card} image={card.image[0]} key={idx} />
           ))}
         </div>
         <Link href={"/events"} className="block w-fit px-5 py-1 rounded-[4px] font-bolder text-lg mt-6 md:mt-10 bg-main mx-auto">{t("Events Calendar")}</Link>

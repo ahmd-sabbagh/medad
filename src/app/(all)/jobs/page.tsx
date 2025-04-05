@@ -10,13 +10,14 @@ import toast, { Toaster } from "react-hot-toast";
 const JobsPage = () => {
   const t = useTranslations();
   const locale = useLocale();
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
+  const [jobs, setJobs] = useState<JobProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [isTokenValid, setIsTokenValid] = useState(false);
-  const [appliedJobIds, setAppliedJobIds] = useState([]);
+  const [appliedJobIds, setAppliedJobIds] = useState<number[]>([]);
 
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-
+  
   useEffect(() => {
     // Fetch jobs
     axios
@@ -24,7 +25,7 @@ const JobsPage = () => {
         headers: { "Accept-Language": locale },
       })
       .then((response) => {
-        setData(response.data);
+        setJobs(response.data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -67,8 +68,8 @@ const JobsPage = () => {
     }
   }, [isTokenValid]);
 
-  const handleJobApplied = (jobId) => {
-    setAppliedJobIds((prev) => [...prev, jobId]); // Update applied job IDs dynamically
+  const handleJobApplied = (jobId: number) => {
+      setAppliedJobIds((prev: number[]) => [...prev, jobId]); // Update applied job IDs dynamically
   };
 
   if (loading) {
@@ -79,7 +80,6 @@ const JobsPage = () => {
     );
   }
 
-  let jobs = data?.data;
 
   return (
     <section className="px-12 bg-[#FAFAFA]">
@@ -91,9 +91,9 @@ const JobsPage = () => {
               key={index}
               job={job}
               isTokenValid={isTokenValid}
-              token={token}
+              token={token as string}
               appliedJobIds={appliedJobIds}
-              onJobApplied={handleJobApplied} // Pass function to update state
+              onJobApplied={handleJobApplied(job.id) } // Pass function to update state
             />
           ))}
         </div>

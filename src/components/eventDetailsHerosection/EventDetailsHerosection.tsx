@@ -8,7 +8,15 @@ import { MdDateRange } from "react-icons/md";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { useTranslations, useLocale } from "next-intl";
 
-const EventDetailsHerosection = ({ baseDate, title, date, location,bg }) => {
+interface EventDetailsHerosectionProps {
+  baseDate: string;
+  title: string;
+  date: string;
+  location: string;
+  bg?: string;
+}
+
+const EventDetailsHerosection: React.FC<EventDetailsHerosectionProps> = ({ baseDate, title, date, location, bg }) => {
   const t = useTranslations();
 
   return (

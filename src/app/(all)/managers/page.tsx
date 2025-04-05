@@ -10,9 +10,9 @@ const ManagerPage = () => {
 
   const t = useTranslations();
   const locale = useLocale();
-  const [data, setData] = useState(null);
+  const [admins, setAdmins] = useState<ManagerProps[]>([]);
   const [loading, setLoading] = useState(true);
-
+  
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admins`, {
@@ -21,7 +21,7 @@ const ManagerPage = () => {
         },
       })
       .then((response) => {
-        setData(response.data);
+        setAdmins(response.data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -38,7 +38,6 @@ const ManagerPage = () => {
     );
   }
 
-  let admins = data?.data;
   return (
     <section className="px-12 bg-[#FAFAFA]">
       <div className="container">

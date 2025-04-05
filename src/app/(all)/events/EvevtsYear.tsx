@@ -2,12 +2,7 @@ import { card_1, card_2 } from "@/assets";
 import EventCard from "@/components/eventCard/EventCard";
 import { useTranslations } from "next-intl";
 import React from "react";
-
-interface EvevtsYearProps {
-  year: number;
-}
-
-const EvevtsYear: React.FC<EvevtsYearProps> = ({ year, events }) => {
+const EvevtsYear: React.FC<EvevtsYearProps & { events: EventCardProps[] }> = ({ year, events }) => {
   const t = useTranslations();
 
   return (

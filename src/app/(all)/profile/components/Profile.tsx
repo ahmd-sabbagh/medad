@@ -10,20 +10,27 @@ import { usePathname } from "next/navigation";
 import toast, { Toaster } from 'react-hot-toast';
 
 const Profile = () => {
+  
   const locale = useLocale();
   const t = useTranslations();
   const pathname = usePathname();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [token, setToken] = useState(null);
-  const fileInputRef = useRef(null);
+  const [token, setToken] = useState<string>('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  interface ProfileProps {
+    name: string;
+    type: string;
+    image?: string;
+  }
 
-  const [originalImage, setOriginalImage] = useState(profile_image); // Store original image
-  const [previewImage, setPreviewImage] = useState(null); // Temporary preview image
+  const [profile, setProfile] = useState<ProfileProps | null>(null);
+  const [originalImage, setOriginalImage] = useState(''); // Store original image
+  const [previewImage, setPreviewImage] = useState<string | ArrayBuffer | null>(null); // Temporary preview image
   const [uploading, setUploading] = useState(false); // Uploading state
 
   useEffect(() => {
-    setToken(localStorage.getItem("token"));
+    setToken(localStorage.getItem("token") || '');
   }, []);
 
   useEffect(() => {
@@ -34,7 +41,7 @@ const Profile = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        setData(response.data);
+        setProfile(response.data.data);
         setOriginalImage(response.data.data?.image || profile_image); // Set initial profile image
       })
       .catch((err) => {
@@ -46,11 +53,13 @@ const Profile = () => {
   }, [token]);
 
   const handleEditClick = () => {
-    fileInputRef.current.click();
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
-  const handleFileChange = async (event) => {
-    const file = event.target.files[0];
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target?.files ? event.target.files[0] : null;
     if (!file) return;
 
     const reader = new FileReader();
@@ -94,22 +103,19 @@ const Profile = () => {
       </div>
     );
   }
-
-  const profile = data?.data;
-
   return (
     <section>
       <Toaster />
       <div className="container">
         <div className="flex gap-3 md:gap-5">
           <div className="img-fit w-[100px] h-[100px] lg:w-[284px] lg:h-[277px] rounded-xl overflow-hidden relative">
-            <Image
-              src={previewImage || originalImage} // Show preview while uploading
+            {originalImage ? (<Image
+              src={ originalImage } // Show preview while uploading
               fill
               className="object-contain"
               alt="profile-image"
               loading="lazy"
-            />
+            />) : (<img  src={previewImage as string} className="w-full h-full object-contain"/>)}
             {uploading && (
               <div className="absolute inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
                 <p className="text-white text-sm">Uploading...</p>

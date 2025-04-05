@@ -7,17 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import { useState } from "react";
 import Form from "@/app/(all)/submit-application-event/Form";
 
-interface Props {
-  id: number;
-  tags: string[];
-  image: string[];
-  title: string;
-  date: string;
-  has_favorite?: boolean;
-}
-
-
-const EventCard = ({ id, tags, image, title, date, has_favorite }: Props) => {
+const EventCard = ({ id, tags, image, title, date, has_favorite }:EventCardProps) => {
   const t = useTranslations();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 

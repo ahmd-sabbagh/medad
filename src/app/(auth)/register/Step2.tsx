@@ -26,7 +26,7 @@ const Step2: React.FC<Step2Props> = ({ setStep ,formData,setFormData}) => {
         state: area,
         setState: (value: string) => {
             setArea(value);
-            setFormData(prev => ({ ...prev, sector: value }));
+            setFormData((prev: typeof formData) => ({ ...prev, sector: value }));
         },
     };
 
@@ -36,7 +36,7 @@ const Step2: React.FC<Step2Props> = ({ setStep ,formData,setFormData}) => {
         state: gender,
         setState: (value: string) => {
             setGender(value);
-            setFormData(prev => ({ ...prev, gender: value }));
+            setFormData((prev: typeof formData) => ({ ...prev, gender: value }));
         },
     };
 
@@ -49,7 +49,7 @@ const Step2: React.FC<Step2Props> = ({ setStep ,formData,setFormData}) => {
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
-            setFormData(prev => ({
+            setFormData((prev: typeof formData) => ({
                 ...prev,
                 image: e.target.files![0]
             }));

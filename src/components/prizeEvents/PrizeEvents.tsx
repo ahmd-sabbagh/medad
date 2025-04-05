@@ -8,11 +8,12 @@ import Link from "next/link";
 import "./style.css"
 import PrizeInfoModal from "../PrizeInfoModal";
 
-const PrizeEvents = ({ lang, event_id}) => {
+const PrizeEvents = ({ lang, event_id}:{lang:string,event_id:any}) => {
   const t = useTranslations();
   const [selectedPrize, setSelectedPrize] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
     const [data, setData] = useState([]);
+    const [prizes, setPrizes] = useState<GiftProps[]>([]);
   
     useEffect(() => {
       axios
@@ -22,7 +23,7 @@ const PrizeEvents = ({ lang, event_id}) => {
           },
         })
         .then((response) => {
-          setData(response.data);
+          setPrizes(response.data.data);
         })
         .catch((err) => {
           console.error("Error fetching data:", err);
@@ -38,7 +39,7 @@ const PrizeEvents = ({ lang, event_id}) => {
       <div className="px-12">
         <h3 className="font-bold text-xl lg:text-3xl">{t("Event prizes")}</h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 ">
-          {data?.data?.map((card, idx) => (
+          {prizes.map((card, idx) => (
             <div
               className="prizeEventCard cursor-pointer block rounded-xl h-[300px] md:h-[400px] lg:h-[524px] p-5 md:p-8 lg:p-10"
               key={card.id}

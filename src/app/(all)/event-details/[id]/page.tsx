@@ -98,7 +98,13 @@ interface EventData    {
 
     return (
         <section>
-            <EventDetailsHerosection title={event?.title} baseDate={event?.date} date={formattedHijriDate} location={event?.location} bg={event?.main_banner}/>
+            <EventDetailsHerosection 
+                title={event?.title ?? ""} 
+                baseDate={event?.date ?? ""} 
+                date={formattedHijriDate ?? ""} 
+                location={event?.location ?? ""} 
+                bg={event?.main_banner ?? ""} 
+            />
             <div className="bg-images-event">
                 <div className="grid grid-cols-2 gap-4">
                     <Image className="img_1" src={event_mask_1} alt="" />
@@ -108,20 +114,32 @@ interface EventData    {
                 </div>
             </div>
             <EventDetailss
-                title={event?.title}
-                introduction={event?.introduction}
-                description={event?.description}
-                target={event?.target}
-                location={event?.location}
-                date={formattedHijriDate}
-                time={event?.time}
-                axes={event?.axes}
-                topics={event?.topics}
+                title={event?.title ?? ""}
+                introduction={event?.introduction ?? ""}
+                description={event?.description ?? ""}
+                target={event?.target ?? ""}
+                location={event?.location ?? ""}
+                date={formattedHijriDate ?? ""}
+                time={event?.time ?? ""}
+                axes={event?.axes ?? []}
+                topics={event?.topics ?? []}
             />
             <Speakers lang={locale} event_id={params.id} />
             <AccompanyingExhibition />
             <PrizeEvents lang={locale} event_id={params.id} />
-            <Schedule schedules={event?.schedules} />
+            <Schedule
+                schedules={(event?.schedules ?? []).map((schedule) => ({
+                    id: schedule.id.toString(),
+                    title: schedule.title,
+                    appointment: [
+                        {
+                            title_ar: schedule.description,
+                            from: schedule.time,
+                            to: schedule.time, // Adjust as needed for actual "to" time
+                        },
+                    ],
+                }))}
+            />
             <Sponsers />
             <Anylisis />
             <OtherActivities lang={locale} event_id={params.id} />

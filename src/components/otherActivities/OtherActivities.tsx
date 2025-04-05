@@ -6,9 +6,10 @@ import { useTranslations } from "next-intl";
 import EventCard from "../eventCard/EventCard";
 
 
-const OtherActivities = ({ lang, event_id }) => {
+const OtherActivities = ({ lang, event_id }:{lang:string;event_id:any}) => {
   const t = useTranslations();
   const [data, setData] = useState([]);
+  const [events, setEvents] = useState<EventCardProps[]>([]);
 
   useEffect(() => {
     axios
@@ -18,7 +19,8 @@ const OtherActivities = ({ lang, event_id }) => {
         },
       })
       .then((response) => {
-        setData(response.data);
+        // setData(response.data);
+        setEvents(response.data.data);
       })
       .catch((err) => {
         console.error("Error fetching data:", err);
@@ -32,7 +34,7 @@ const OtherActivities = ({ lang, event_id }) => {
           <h3 className="text-3xl font-bold">{t("Other activities")}</h3>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-3">
-          {data?.data?.map((card, idx) => (
+          {events?.map((card, idx) => (
             <EventCard {...card} key={idx} />
           ))}
         </div>

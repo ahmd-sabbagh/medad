@@ -4,7 +4,11 @@ import Image from "next/image";
 import React from "react";
 import "./style.css"
 
-const Manager = ({ admin }) => {
+interface Props {
+  admin: ManagerProps;
+}
+
+const Manager: React.FC<Props> = ({ admin }) => {
 
   return (
     <div className=" text-center rounded-xl p-4 pt-8">

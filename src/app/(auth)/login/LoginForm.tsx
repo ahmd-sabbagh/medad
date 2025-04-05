@@ -14,7 +14,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   // Check if token is valid on page load
   useEffect(() => {
@@ -42,10 +42,10 @@ const LoginForm = () => {
   }, [router]);
 
   // Handle Login
-  const handleLogin = async (e) => {
+  const handleLogin = async (e:any) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
+    setError("");
 
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/login`, {

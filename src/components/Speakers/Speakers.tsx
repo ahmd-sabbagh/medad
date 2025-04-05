@@ -6,9 +6,9 @@ import "./style.css"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Speakers = ({ lang, event_id }) => {
+const Speakers = ({ lang, event_id }:{lang:string;event_id:any}) => {
   const t = useTranslations();
-  const [speakers, setData] = useState([]);
+  const [speakers, setData] = useState<SpeakerProps[]>([]);
 
   useEffect(() => {
     axios
@@ -18,7 +18,7 @@ const Speakers = ({ lang, event_id }) => {
         },
       })
       .then((response) => {
-        setData(response.data);
+        setData(response.data.data);
       })
       .catch((err) => {
         console.error("Error fetching data:", err);
@@ -30,7 +30,7 @@ const Speakers = ({ lang, event_id }) => {
       <div className="">
         <h3 className="font-bold text-xl lg:text-3xl">{t("Speakers")}</h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
-          {speakers?.data?.map((speaker, index) => (
+          {speakers?.map((speaker, index) => (
             <div className="img-fit h-[200px] md:h-[270px] rounded-xl overflow-hidden relative" key={index}>
               <img src={speaker.image} width={300} height={200} alt="persone" loading="lazy" />
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black to-black/20"></div>

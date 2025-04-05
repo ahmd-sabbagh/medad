@@ -3,7 +3,10 @@ import Image from "next/image";
 import React from "react";
 // import "./style.css"
 
-const Member = ({ member }) => {
+interface Props {
+  member: MemberProps;
+}
+const Member: React.FC<Props> = ({ member }) => {
 
   return (
     <div className="bg-white member text-center rounded-xl p-4 pt-8">

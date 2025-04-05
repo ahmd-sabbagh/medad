@@ -6,7 +6,9 @@ import Image from "next/image";
 import "./style.css";
 import { speaker_event } from "@/assets";
 
-const Schedule = ({ schedules }) => {
+
+
+const Schedule = ({ schedules }:  {schedules:ScheduleProps[]}) => {
   const t = useTranslations();
   const [selectedSchedule, setSelectedSchedule] = useState(schedules[0]); // Default to first day
 

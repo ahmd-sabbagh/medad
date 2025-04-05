@@ -10,9 +10,23 @@ import { useTranslations, useLocale } from "next-intl";
 
 const EventsPage = () => {
 
+  interface Props
+  {
+    events: EventCardProps[];
+  }
+  interface EventResponse {
+    data: Props[];
+    meta: {
+      current_page: number;
+      last_page: number;      
+      total: number;
+      per_page: number;
+    };
+  }
   const t = useTranslations();
   const locale = useLocale();
-  const [data, setData] = useState(null);
+  const [events, setEvents] = useState<Props[] | null>([]);
+  const [data, setData] = useState<EventResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,6 +38,7 @@ const EventsPage = () => {
       })
       .then((response) => {
         setData(response.data);
+        setEvents(response.data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -39,15 +54,12 @@ const EventsPage = () => {
       </div>
     );
   }
-
-  let events = data?.data;
-
   return (
     <section>
       <Header />
       <LatestEventsCard />
       {events?.map((event, index) => (
-        <EvevtsYear key={index} year={event.date} events={event.events} />
+        <EvevtsYear key={index} year={2023} events={event.events} />
       ))}
     </section>
   );

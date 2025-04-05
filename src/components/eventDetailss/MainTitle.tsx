@@ -2,7 +2,11 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import "./style.css";
 
-const MainTitle = ({title}) => {
+interface MainTitleProps {
+  title: string;
+}
+
+const MainTitle: React.FC<MainTitleProps> = ({ title }) => {
   const t = useTranslations();
   return (
     <div className="MainTitle p-5 md:p-8 lg:p-12 rounded-xl mt-10 md:mt-20">

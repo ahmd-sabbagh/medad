@@ -7,10 +7,16 @@ import { useTranslations, useLocale } from "next-intl";
 import axios from "axios";
 
 const Header = () => {
-
+  interface Tag {
+    id: number;
+    name: string;
+  }
+  interface TagsData {
+    data: Tag[];
+  }
   const t = useTranslations();
   const locale = useLocale();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<TagsData | null>(null); // Initialize data as null
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -60,9 +66,9 @@ const Header = () => {
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-3 md:mt-4">
           {tags?.map((tag, idx) => (
             <div className="chbx" key={idx}>
-              <input type="checkbox" id={tag.id} className="hidden" />
+              <input type="checkbox" id={''+tag.id} className="hidden" />
               <label
-                htmlFor={tag.id}
+                htmlFor={''+tag.id}
                 className="rounded-lg p-2 md:p-3 md:px-5 block cursor-pointer"
               >
                 <span className="md:text-xl">{tag.name}</span>

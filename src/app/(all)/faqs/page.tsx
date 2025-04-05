@@ -11,9 +11,9 @@ const FaqsPage = () => {
     const t = useTranslations();
     const locale = useLocale();
     const [data, setData] = useState(null);
+    const [faqs, setFaqs] = useState<FaqProps[]>([]);
     const [loading, setLoading] = useState(true);
     const params = useParams();
-
     useEffect(() => {
         axios
             .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/faq`, {
@@ -23,6 +23,7 @@ const FaqsPage = () => {
             })
             .then((response) => {
                 setData(response.data);
+                setFaqs(response.data.data);
                 setLoading(false);
             })
             .catch((err) => {
@@ -38,8 +39,6 @@ const FaqsPage = () => {
           </div>
       );
   }
-
-  let faqs = data?.data;
 
   return (
     <section className="py-6 px-12">

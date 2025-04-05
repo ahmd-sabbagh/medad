@@ -15,7 +15,7 @@ const PeizeInfo = () => {
   const params = useParams();
   const locale = useLocale();
   const [data, setData] = useState(null);
-
+  const [gift, setGift] = useState<GiftProps>({} as GiftProps);
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/show-gift/${params.id}`, {
@@ -24,7 +24,7 @@ const PeizeInfo = () => {
         },
       })
       .then((response) => {
-        setData(response.data);
+        setGift(response.data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -41,7 +41,6 @@ const PeizeInfo = () => {
     );
   }
 
-  let gift = data?.data;
 
   return (
     <section>

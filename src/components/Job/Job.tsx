@@ -4,8 +4,15 @@ import React from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "./style.css";
+interface JobProps {
+  job: any; // Replace 'any' with the actual type of 'job'
+  isTokenValid: boolean;
+  token: string;
+  appliedJobIds: number[]; // Replace 'number[]' with the correct type if needed
+  onJobApplied: any; // Adjust the function signature as needed
+}
 
-const Job = ({ job, isTokenValid, token, appliedJobIds, onJobApplied }) => {
+const Job: React.FC<JobProps> = ({ job, isTokenValid, token, appliedJobIds, onJobApplied }) => {
   const t = useTranslations();
   const hasApplied = appliedJobIds.includes(job.id); // Check if already applied
 

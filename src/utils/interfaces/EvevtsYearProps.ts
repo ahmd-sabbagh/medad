@@ -1,0 +1,4 @@
+
+interface EvevtsYearProps {
+  year: number;
+}

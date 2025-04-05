@@ -4,10 +4,10 @@ import { useTranslations } from "next-intl";
 import axios from "axios";
 import PrizeInfoModal from "./PrizeInfoModal";
 
-const PrizeEvents = ({ lang, event_id }) => {
+const PrizeEvents = ({ lang, event_id }:{lang:string,event_id:any}) => {
   const t = useTranslations();
-  const [prizes, setPrizes] = useState([]);
-  const [selectedPrize, setSelectedPrize] = useState(null);
+  const [prizes, setPrizes] = useState<GiftProps[]>([]);
+  const [selectedPrize, setSelectedPrize] = useState<GiftProps | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const PrizeEvents = ({ lang, event_id }) => {
       });
   }, [event_id, lang]);
 
-  const handlePrizeClick = (prize) => {
+  const handlePrizeClick = (prize:GiftProps) => {
     setSelectedPrize(prize);
     setIsModalOpen(true);
   };

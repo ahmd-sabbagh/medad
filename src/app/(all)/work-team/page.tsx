@@ -7,11 +7,12 @@ import HaveQuestion from "@/components/Question/HaveQuestion";
 import Member from "@/components/Member/Member";
 
 const WorkTeamPage = () => {
+
   const t = useTranslations();
   const locale = useLocale();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [team, setTeam] = useState<MemberProps[]>([]);
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/workteam`, {
@@ -20,7 +21,7 @@ const WorkTeamPage = () => {
         },
       })
       .then((response) => {
-        setData(response.data);
+        setTeam(response.data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -36,7 +37,6 @@ const WorkTeamPage = () => {
       </div>
     );
   }
-  let team = data?.data;
   return (
     <section className="px-12 bg-[#FAFAFA]">
       <div className="container">

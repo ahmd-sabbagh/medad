@@ -17,7 +17,7 @@ const EventDetails = () => {
   return (
     <section>
       
-      <EventDetailsHerosection />
+      {/* <EventDe/tailsHerosection baseDate={} /> */}
       <div className="bg-images-event">
         <div className="grid grid-cols-2 gap-4">
         <Image className="img_1" src={event_mask_1} alt="" />
@@ -26,14 +26,14 @@ const EventDetails = () => {
         <Image className="img_2" src={event_mask_1} alt="" />
         </div>
       </div>
-      <EventDetailss />
-      <Speakers />
+      {/* <EventDetailss /> */}
+      {/* <Speakers /> */}
       <AccompanyingExhibition />
-      <PrizeEvents />
-      <Schedule />
+      {/* <PrizeEvents /> */}
+      {/* <Schedule /> */}
       <Sponsers />
       <Anylisis/>
-      <OtherActivities />
+      {/* <OtherActivities /> */}
     </section>
   );
 };

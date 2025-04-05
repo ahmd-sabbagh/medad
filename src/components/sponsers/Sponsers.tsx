@@ -17,7 +17,7 @@ const Sponsers = () => {
   const t = useTranslations();
 
   const locale = useLocale();
-  const [data, setData] = useState(null);
+  const [sponsers, setSponsers] = useState<SponsorProps[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Sponsers = () => {
         },
       })
       .then((response) => {
-        setData(response.data);
+        setSponsers(response.data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -44,8 +44,6 @@ const Sponsers = () => {
       </div>
     );
   }
-
-  let sponsors = data?.data;
 
 
 
@@ -78,7 +76,7 @@ const Sponsers = () => {
                 },
               }}
             >
-              {sponsors?.map((sponsor, idx) => (
+              {sponsers?.map((sponsor, idx) => (
                 <SwiperSlide key={idx}>
                 <div className="relative h-[80px] md:h-[100px] lg:h-[140px] xl:h-[170px] ">
                   <img

@@ -8,7 +8,19 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { MdAccessTime, MdDateRange } from "react-icons/md";
 
-const EventDetailss = ({ title, introduction, description, target, location, date, time, axes, topics }) => {
+interface EventDetailsProps {
+  title: string;
+  introduction: string;
+  description: string;
+  target: string;
+  location: string;
+  date: string;
+  time: string;
+  axes: string[];
+  topics: string[];
+}
+
+const EventDetailss: React.FC<EventDetailsProps> = ({ title, introduction, description, target, location, date, time, axes, topics }) => {
 
   const t = useTranslations();
 
@@ -62,7 +74,7 @@ const EventDetailss = ({ title, introduction, description, target, location, dat
           </div>
         </div>
         <MainTitle title={title} />
-        <Interviewer axes={axes} />
+        {/* <Interviewer axes={axes} /> */}
         <EventTopics topics={topics} />
       </div>
     </section>

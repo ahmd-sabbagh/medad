@@ -18,9 +18,31 @@ import { Pagination } from "swiper/modules";
 import "./style.css";
 
 const LatestEventsCard = () => {
+  interface Event {
+    id: number;
+    title: string;
+    description: string;  
+    image: string;
+    date: string;
+    location: string;
+    has_favorite: boolean;
+  }
+  interface EventResponse {
+    data: Event[];
+    meta: {
+      current_page: number;
+      last_page: number;
+      total: number;
+      per_page: number;
+    };
+  }
+  interface Props {
+    events: Event[];
+  }
+  
   const t = useTranslations();
   const locale = useLocale();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<EventResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
