@@ -3,7 +3,7 @@ import Button from "@/components/button/Button";
 import DropDownMenu from "@/components/dropDownMenu/DropDownMenu";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { createElement, HtmlHTMLAttributes, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
@@ -86,7 +86,54 @@ const Step2: React.FC<Step2Props> = ({ setStep ,formData,setFormData}) => {
                 router.push('/verify');
             }
         } catch (err: any) {
-            setError(err.response?.data?.message || "An error occurred");
+            if(err.response?.status === 422) {
+                const _errors:object = err.response?.data?.errors;
+                console.log(_errors);
+                setError(err.response?.data?.errors?.[0] || "Validation error");
+                Object.entries(_errors).forEach(([key, value]: [string, any]) => {
+                    console.log(value);
+                    let span = document.createElement("span");
+                    span.className = "text-red-500 text-sm font-bold mt-2 mb-2 ml-2";
+                    span.style.display = "block";
+                    span.style.marginBottom = "20px";
+                    span.style.marginBottom = "5px";
+                    span.style.fontSize = "14px";
+                    span.style.fontWeight = "bold";
+                    span.style.color = "red";
+                    span.style.backgroundColor = "#f8d7da";
+                    span.style.border = "1px solid red";
+                    span.style.borderRadius = "8px";
+                    span.style.padding = "0 10px";
+                    span.style.width = "fit-content";
+                    span.style.textAlign = "center";
+                    span.style.position = "absolute";
+                    span.style.zIndex = "1000";
+                    span.style.top = "100%";
+                    span.style.left = "50%";
+                    span.style.transform = "translateX(-50%)";
+                    
+                    span.style.whiteSpace = "nowrap";
+
+                    span.innerText = value[0];
+                    span.id = `error-message${key}`;
+                    let s = document.querySelector(`[id="${key}"]`) as HTMLElement | null;
+                    if (s) {
+                        s.style.border = "1px solid red";
+                        s.style.borderRadius = "8px";
+                        s.style.padding = "0 10px";
+                        s.style.marginBottom = "10px";
+                        s.style.backgroundColor = "#f8d7da";
+                        s.style.color = "#721c24";
+                        s.style.fontSize = "14px";
+                        s.style.fontWeight = "bold";
+                        s.style.marginTop = "5px";
+                    }
+                    s?.parentNode?.insertBefore(span, s);
+                });
+            
+
+            } 
+            // setError(err.response?.data?.message || "An error occurred");
         }
     };
 
@@ -140,21 +187,21 @@ const Step2: React.FC<Step2Props> = ({ setStep ,formData,setFormData}) => {
                         className="w-full px-5 h-full pl-10 bg-input pr-10 text-bolder"
                     />
                     <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-main">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32" enable-background="new 0 0 32 32" id="Stock_cut" version="1.1" xmlSpace="preserve">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32" enableBackground="new 0 0 32 32" id="Stock_cut" version="1.1" xmlSpace="preserve">
 
                             <desc />
 
                             <g>
 
-                                <rect fill="none" height="24" stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" width="30" x="1" y="7" />
+                                <rect fill="none" height={24} stroke="currentColor" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" width={30} x={1} y={7} />
 
-                                <path d="M31,7H1v6   c0,2.209,1.791,4,4,4h22c2.209,0,4-1.791,4-4V7z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                                <path d="M31,7H1v6   c0,2.209,1.791,4,4,4h22c2.209,0,4-1.791,4-4V7z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeMiterlimit={10} strokeWidth={2} />
 
-                                <path d="M8,7V3   c0-1.105,0.895-2,2-2h12c1.105,0,2,0.895,2,2v4" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                                <path d="M8,7V3   c0-1.105,0.895-2,2-2h12c1.105,0,2,0.895,2,2v4" fill="none" stroke="currentColor" strokeLinejoin="round" strokeMiterlimit={10} strokeWidth={2} />
 
                                 <path d="M16,21L16,21   c-1.105,0-2-0.895-2-2v-4c0-1.105,0.895-2,2-2h0c1.105,0,2,0.895,2,2v4C18,20.105,17.105,21,16,21z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
 
-                                <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="18" x2="14" y1="17" y2="17" />
+                                <line fill="none" stroke="currentColor" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth={2} x1={18} x2={14} y1={17} y2={17} />
 
                             </g>
 
